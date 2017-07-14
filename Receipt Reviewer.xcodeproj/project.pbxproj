@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		814588B51F153837003D4C18 /* ReceiptDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814588B41F153837003D4C18 /* ReceiptDetailViewController.swift */; };
+		814588B71F153E49003D4C18 /* ReceiptDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814588B61F153E49003D4C18 /* ReceiptDetailViewCell.swift */; };
+		814588BA1F168749003D4C18 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814588B91F168749003D4C18 /* Receipt.swift */; };
+		814588BE1F17E6CD003D4C18 /* ReceiptReviewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 814588BC1F17E6CD003D4C18 /* ReceiptReviewer.xcdatamodeld */; };
+		814588C01F17E798003D4C18 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814588BF1F17E798003D4C18 /* CoreDataHelper.swift */; };
+		814588C31F17FA35003D4C18 /* Receipt+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814588C11F17FA35003D4C18 /* Receipt+CoreDataClass.swift */; };
+		814588C41F17FA35003D4C18 /* Receipt+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814588C21F17FA35003D4C18 /* Receipt+CoreDataProperties.swift */; };
+		814588C61F192C71003D4C18 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814588C51F192C71003D4C18 /* EditViewController.swift */; };
+		814588C81F193035003D4C18 /* EditViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814588C71F193035003D4C18 /* EditViewCell.swift */; };
+		814588CA1F19305C003D4C18 /* AddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814588C91F19305C003D4C18 /* AddCell.swift */; };
+		81D700851F13E6CD003BB738 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D700841F13E6CD003BB738 /* AppDelegate.swift */; };
+		81D700871F13E6CD003BB738 /* ReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D700861F13E6CD003BB738 /* ReceiptViewController.swift */; };
+		81D7008A1F13E6CD003BB738 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D700881F13E6CD003BB738 /* Main.storyboard */; };
+		81D7008C1F13E6CD003BB738 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81D7008B1F13E6CD003BB738 /* Assets.xcassets */; };
+		81D7008F1F13E6CD003BB738 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D7008D1F13E6CD003BB738 /* LaunchScreen.storyboard */; };
+		81D700971F13ED85003BB738 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D700961F13ED85003BB738 /* MainTabBarController.swift */; };
+		81D700991F13EE7B003BB738 /* ReceiptViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D700981F13EE7B003BB738 /* ReceiptViewCell.swift */; };
+		81D700A21F14218D003BB738 /* RRPhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D700A11F14218D003BB738 /* RRPhotoHelper.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		814588B41F153837003D4C18 /* ReceiptDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptDetailViewController.swift; sourceTree = "<group>"; };
+		814588B61F153E49003D4C18 /* ReceiptDetailViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptDetailViewCell.swift; sourceTree = "<group>"; };
+		814588B91F168749003D4C18 /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
+		814588BD1F17E6CD003D4C18 /* ReceiptReviewer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReceiptReviewer.xcdatamodel; sourceTree = "<group>"; };
+		814588BF1F17E798003D4C18 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		814588C11F17FA35003D4C18 /* Receipt+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Receipt+CoreDataClass.swift"; sourceTree = "<group>"; };
+		814588C21F17FA35003D4C18 /* Receipt+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Receipt+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		814588C51F192C71003D4C18 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		814588C71F193035003D4C18 /* EditViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewCell.swift; sourceTree = "<group>"; };
+		814588C91F19305C003D4C18 /* AddCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCell.swift; sourceTree = "<group>"; };
+		81D700811F13E6CD003BB738 /* Receipt Reviewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Receipt Reviewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81D700841F13E6CD003BB738 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		81D700861F13E6CD003BB738 /* ReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewController.swift; sourceTree = "<group>"; };
+		81D700891F13E6CD003BB738 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		81D7008B1F13E6CD003BB738 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		81D7008E1F13E6CD003BB738 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		81D700901F13E6CD003BB738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81D700961F13ED85003BB738 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		81D700981F13EE7B003BB738 /* ReceiptViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptViewCell.swift; sourceTree = "<group>"; };
+		81D700A11F14218D003BB738 /* RRPhotoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRPhotoHelper.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		81D7007E1F13E6CD003BB738 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		814588B81F168733003D4C18 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				814588B91F168749003D4C18 /* Receipt.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		814588BB1F17E6A7003D4C18 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				814588BC1F17E6CD003D4C18 /* ReceiptReviewer.xcdatamodeld */,
+				814588C11F17FA35003D4C18 /* Receipt+CoreDataClass.swift */,
+				814588C21F17FA35003D4C18 /* Receipt+CoreDataProperties.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		81D700781F13E6CD003BB738 = {
+			isa = PBXGroup;
+			children = (
+				81D700831F13E6CD003BB738 /* Receipt Reviewer */,
+				81D700821F13E6CD003BB738 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		81D700821F13E6CD003BB738 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				81D700811F13E6CD003BB738 /* Receipt Reviewer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		81D700831F13E6CD003BB738 /* Receipt Reviewer */ = {
+			isa = PBXGroup;
+			children = (
+				814588BB1F17E6A7003D4C18 /* Data */,
+				814588B81F168733003D4C18 /* Model */,
+				81D700A01F14216F003BB738 /* Helper */,
+				81D7009E1F13EFA2003BB738 /* Storyboard */,
+				81D7009D1F13EF84003BB738 /* View */,
+				81D7009F1F13EFC4003BB738 /* Secondary */,
+				81D7009C1F13EF65003BB738 /* Controllers */,
+			);
+			path = "Receipt Reviewer";
+			sourceTree = "<group>";
+		};
+		81D7009C1F13EF65003BB738 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				81D700961F13ED85003BB738 /* MainTabBarController.swift */,
+				81D700861F13E6CD003BB738 /* ReceiptViewController.swift */,
+				814588B41F153837003D4C18 /* ReceiptDetailViewController.swift */,
+				814588C51F192C71003D4C18 /* EditViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		81D7009D1F13EF84003BB738 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				814588C91F19305C003D4C18 /* AddCell.swift */,
+				81D700981F13EE7B003BB738 /* ReceiptViewCell.swift */,
+				814588B61F153E49003D4C18 /* ReceiptDetailViewCell.swift */,
+				814588C71F193035003D4C18 /* EditViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		81D7009E1F13EFA2003BB738 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				81D700881F13E6CD003BB738 /* Main.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		81D7009F1F13EFC4003BB738 /* Secondary */ = {
+			isa = PBXGroup;
+			children = (
+				81D700841F13E6CD003BB738 /* AppDelegate.swift */,
+				81D700901F13E6CD003BB738 /* Info.plist */,
+				81D7008D1F13E6CD003BB738 /* LaunchScreen.storyboard */,
+				81D7008B1F13E6CD003BB738 /* Assets.xcassets */,
+			);
+			name = Secondary;
+			sourceTree = "<group>";
+		};
+		81D700A01F14216F003BB738 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				81D700A11F14218D003BB738 /* RRPhotoHelper.swift */,
+				814588BF1F17E798003D4C18 /* CoreDataHelper.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		81D700801F13E6CD003BB738 /* Receipt Reviewer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81D700931F13E6CD003BB738 /* Build configuration list for PBXNativeTarget "Receipt Reviewer" */;
+			buildPhases = (
+				81D7007D1F13E6CD003BB738 /* Sources */,
+				81D7007E1F13E6CD003BB738 /* Frameworks */,
+				81D7007F1F13E6CD003BB738 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Receipt Reviewer";
+			productName = "Receipt Reviewer";
+			productReference = 81D700811F13E6CD003BB738 /* Receipt Reviewer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		81D700791F13E6CD003BB738 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Connar Wang";
+				TargetAttributes = {
+					81D700801F13E6CD003BB738 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = CNKMW85KL5;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 81D7007C1F13E6CD003BB738 /* Build configuration list for PBXProject "Receipt Reviewer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 81D700781F13E6CD003BB738;
+			productRefGroup = 81D700821F13E6CD003BB738 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				81D700801F13E6CD003BB738 /* Receipt Reviewer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		81D7007F1F13E6CD003BB738 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81D7008F1F13E6CD003BB738 /* LaunchScreen.storyboard in Resources */,
+				81D7008C1F13E6CD003BB738 /* Assets.xcassets in Resources */,
+				81D7008A1F13E6CD003BB738 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		81D7007D1F13E6CD003BB738 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				814588C61F192C71003D4C18 /* EditViewController.swift in Sources */,
+				814588C01F17E798003D4C18 /* CoreDataHelper.swift in Sources */,
+				814588BE1F17E6CD003D4C18 /* ReceiptReviewer.xcdatamodeld in Sources */,
+				81D700871F13E6CD003BB738 /* ReceiptViewController.swift in Sources */,
+				814588C81F193035003D4C18 /* EditViewCell.swift in Sources */,
+				81D700851F13E6CD003BB738 /* AppDelegate.swift in Sources */,
+				814588B71F153E49003D4C18 /* ReceiptDetailViewCell.swift in Sources */,
+				814588C31F17FA35003D4C18 /* Receipt+CoreDataClass.swift in Sources */,
+				81D700971F13ED85003BB738 /* MainTabBarController.swift in Sources */,
+				814588CA1F19305C003D4C18 /* AddCell.swift in Sources */,
+				814588BA1F168749003D4C18 /* Receipt.swift in Sources */,
+				814588C41F17FA35003D4C18 /* Receipt+CoreDataProperties.swift in Sources */,
+				81D700991F13EE7B003BB738 /* ReceiptViewCell.swift in Sources */,
+				814588B51F153837003D4C18 /* ReceiptDetailViewController.swift in Sources */,
+				81D700A21F14218D003BB738 /* RRPhotoHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		81D700881F13E6CD003BB738 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				81D700891F13E6CD003BB738 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		81D7008D1F13E6CD003BB738 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				81D7008E1F13E6CD003BB738 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		81D700911F13E6CD003BB738 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		81D700921F13E6CD003BB738 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		81D700941F13E6CD003BB738 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CNKMW85KL5;
+				INFOPLIST_FILE = "Receipt Reviewer/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "none.Receipt-Reviewer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		81D700951F13E6CD003BB738 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CNKMW85KL5;
+				INFOPLIST_FILE = "Receipt Reviewer/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "none.Receipt-Reviewer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		81D7007C1F13E6CD003BB738 /* Build configuration list for PBXProject "Receipt Reviewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81D700911F13E6CD003BB738 /* Debug */,
+				81D700921F13E6CD003BB738 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81D700931F13E6CD003BB738 /* Build configuration list for PBXNativeTarget "Receipt Reviewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81D700941F13E6CD003BB738 /* Debug */,
+				81D700951F13E6CD003BB738 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		814588BC1F17E6CD003D4C18 /* ReceiptReviewer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				814588BD1F17E6CD003D4C18 /* ReceiptReviewer.xcdatamodel */,
+			);
+			currentVersion = 814588BD1F17E6CD003D4C18 /* ReceiptReviewer.xcdatamodel */;
+			path = ReceiptReviewer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 81D700791F13E6CD003BB738 /* Project object */;
+}
