@@ -19,11 +19,10 @@ class ReceiptViewController: UIViewController {
     }
 
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         receipts = CoreDataHelper.retrieveReceipts()
-
-        
     }
     
     @IBAction func addButtonTapped(_ sender: Any) {
@@ -32,28 +31,32 @@ class ReceiptViewController: UIViewController {
     }
    
     
-    @IBAction func unwindToListNotesViewController(_ segue: UIStoryboardSegue) {
-        
+    @IBAction func unwindToReceiptViewController(_ segue: UIStoryboardSegue) {
         self.receipts = CoreDataHelper.retrieveReceipts()
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let identifier = segue.identifier {
-            if identifier == "displayReceipt" {
-                print("Table view cell tapped")
-                
-                // 1
-                let indexPath = tableView.indexPathForSelectedRow!
-                // 2
-                let receipt = receipts[indexPath.row]
-                // 3
-                let ReceiptDetailViewController = segue.destination as! ReceiptDetailViewController
-                // 4
-                ReceiptDetailViewController.receipt = receipt
-                
-            } else if identifier == "add" {
-                print("+ button tapped")
+        if segue.identifier == "displayReceipt" {
+            print("Table view cell tapped")
+            
+            // 1
+            let indexPath = tableView.indexPathForSelectedRow!
+            // 2
+            let receipt = receipts[indexPath.row]
+            // 3
+            let ReceiptDetailViewController = segue.destination as! ReceiptDetailViewController
+            // 4
+            ReceiptDetailViewController.receipt = receipt
+            
+        }
+        
+        if segue.identifier == "newReceipt" {
+            print("+ button tapped")
+            if let navVC = segue.destination as? UINavigationController {
+                if let destinationVC = navVC.topViewController as? EditViewController{
+                    destinationVC.delegate = self
+                }
             }
         }
     }
@@ -64,6 +67,10 @@ class ReceiptViewController: UIViewController {
 
 extension ReceiptViewController: UITableViewDataSource, UITableViewDelegate
 {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return receipts.count
@@ -73,24 +80,16 @@ extension ReceiptViewController: UITableViewDataSource, UITableViewDelegate
     {
         // 3
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReceiptViewCell", for: indexPath) as! ReceiptViewCell
-        
-        // 2
-        
+    
         let row = indexPath.row
-        
-        // 2
         let receipt = receipts[row]
-        
-        // 3
+
         cell.receiptNameLabel.text = receipt.title
-        
-        // 4
         cell.dateLabel.text = receipt.date?.convertToString()
-        
-        
         
         return cell
     }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         // 2
         if editingStyle == .delete {
@@ -104,6 +103,12 @@ extension ReceiptViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         print("Cell Tapped")
+    }
+}
+
+extension ReceiptViewController: EditViewControllerProtocol{
+    func reloadTableView() {
+        receipts = CoreDataHelper.retrieveReceipts()
     }
 }
 

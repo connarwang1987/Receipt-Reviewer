@@ -11,10 +11,12 @@ import UIKit
 class ReceiptDetailViewCell: UITableViewCell {
     
     
+    @IBOutlet weak var itemNameLabel: UILabel!
     
+    @IBOutlet weak var itemPriceLabel: UILabel!
        
     
-    
+
     
     
     override func awakeFromNib() {

@@ -1,5 +1,5 @@
 //
-//  Receipt+CoreDataClass.swift
+//  Item+CoreDataClass.swift
 //  Receipt Reviewer
 //
 //  Created by Linglong Wang on 7/18/17.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-
-public class Receipt: NSManagedObject {
+@objc(Item)
+public class Item: NSManagedObject {
 
 }

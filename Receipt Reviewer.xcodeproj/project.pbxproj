@@ -12,8 +12,6 @@
 		814588BA1F168749003D4C18 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814588B91F168749003D4C18 /* Receipt.swift */; };
 		814588BE1F17E6CD003D4C18 /* ReceiptReviewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 814588BC1F17E6CD003D4C18 /* ReceiptReviewer.xcdatamodeld */; };
 		814588C01F17E798003D4C18 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814588BF1F17E798003D4C18 /* CoreDataHelper.swift */; };
-		814588C31F17FA35003D4C18 /* Receipt+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814588C11F17FA35003D4C18 /* Receipt+CoreDataClass.swift */; };
-		814588C41F17FA35003D4C18 /* Receipt+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814588C21F17FA35003D4C18 /* Receipt+CoreDataProperties.swift */; };
 		814588C61F192C71003D4C18 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814588C51F192C71003D4C18 /* EditViewController.swift */; };
 		814588C81F193035003D4C18 /* EditViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814588C71F193035003D4C18 /* EditViewCell.swift */; };
 		814588CA1F19305C003D4C18 /* AddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814588C91F19305C003D4C18 /* AddCell.swift */; };
@@ -25,6 +23,10 @@
 		81D700971F13ED85003BB738 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D700961F13ED85003BB738 /* MainTabBarController.swift */; };
 		81D700991F13EE7B003BB738 /* ReceiptViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D700981F13EE7B003BB738 /* ReceiptViewCell.swift */; };
 		81D700A21F14218D003BB738 /* RRPhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D700A11F14218D003BB738 /* RRPhotoHelper.swift */; };
+		81F4F07D1F1EAA7F00163D18 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F4F0791F1EAA7F00163D18 /* Item+CoreDataClass.swift */; };
+		81F4F07E1F1EAA7F00163D18 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F4F07A1F1EAA7F00163D18 /* Item+CoreDataProperties.swift */; };
+		81F4F07F1F1EAA7F00163D18 /* Receipt+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F4F07B1F1EAA7F00163D18 /* Receipt+CoreDataClass.swift */; };
+		81F4F0801F1EAA7F00163D18 /* Receipt+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F4F07C1F1EAA7F00163D18 /* Receipt+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,8 +35,6 @@
 		814588B91F168749003D4C18 /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		814588BD1F17E6CD003D4C18 /* ReceiptReviewer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReceiptReviewer.xcdatamodel; sourceTree = "<group>"; };
 		814588BF1F17E798003D4C18 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
-		814588C11F17FA35003D4C18 /* Receipt+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Receipt+CoreDataClass.swift"; sourceTree = "<group>"; };
-		814588C21F17FA35003D4C18 /* Receipt+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Receipt+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		814588C51F192C71003D4C18 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		814588C71F193035003D4C18 /* EditViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewCell.swift; sourceTree = "<group>"; };
 		814588C91F19305C003D4C18 /* AddCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCell.swift; sourceTree = "<group>"; };
@@ -48,6 +48,10 @@
 		81D700961F13ED85003BB738 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		81D700981F13EE7B003BB738 /* ReceiptViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptViewCell.swift; sourceTree = "<group>"; };
 		81D700A11F14218D003BB738 /* RRPhotoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRPhotoHelper.swift; sourceTree = "<group>"; };
+		81F4F0791F1EAA7F00163D18 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		81F4F07A1F1EAA7F00163D18 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		81F4F07B1F1EAA7F00163D18 /* Receipt+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Receipt+CoreDataClass.swift"; sourceTree = "<group>"; };
+		81F4F07C1F1EAA7F00163D18 /* Receipt+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Receipt+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,8 +77,10 @@
 			isa = PBXGroup;
 			children = (
 				814588BC1F17E6CD003D4C18 /* ReceiptReviewer.xcdatamodeld */,
-				814588C11F17FA35003D4C18 /* Receipt+CoreDataClass.swift */,
-				814588C21F17FA35003D4C18 /* Receipt+CoreDataProperties.swift */,
+				81F4F0791F1EAA7F00163D18 /* Item+CoreDataClass.swift */,
+				81F4F07A1F1EAA7F00163D18 /* Item+CoreDataProperties.swift */,
+				81F4F07B1F1EAA7F00163D18 /* Receipt+CoreDataClass.swift */,
+				81F4F07C1F1EAA7F00163D18 /* Receipt+CoreDataProperties.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -238,12 +244,14 @@
 				81D700871F13E6CD003BB738 /* ReceiptViewController.swift in Sources */,
 				814588C81F193035003D4C18 /* EditViewCell.swift in Sources */,
 				81D700851F13E6CD003BB738 /* AppDelegate.swift in Sources */,
+				81F4F07F1F1EAA7F00163D18 /* Receipt+CoreDataClass.swift in Sources */,
+				81F4F07D1F1EAA7F00163D18 /* Item+CoreDataClass.swift in Sources */,
 				814588B71F153E49003D4C18 /* ReceiptDetailViewCell.swift in Sources */,
-				814588C31F17FA35003D4C18 /* Receipt+CoreDataClass.swift in Sources */,
 				81D700971F13ED85003BB738 /* MainTabBarController.swift in Sources */,
+				81F4F07E1F1EAA7F00163D18 /* Item+CoreDataProperties.swift in Sources */,
+				81F4F0801F1EAA7F00163D18 /* Receipt+CoreDataProperties.swift in Sources */,
 				814588CA1F19305C003D4C18 /* AddCell.swift in Sources */,
 				814588BA1F168749003D4C18 /* Receipt.swift in Sources */,
-				814588C41F17FA35003D4C18 /* Receipt+CoreDataProperties.swift in Sources */,
 				81D700991F13EE7B003BB738 /* ReceiptViewCell.swift in Sources */,
 				814588B51F153837003D4C18 /* ReceiptDetailViewController.swift in Sources */,
 				81D700A21F14218D003BB738 /* RRPhotoHelper.swift in Sources */,

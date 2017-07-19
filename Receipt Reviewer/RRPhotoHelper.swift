@@ -19,8 +19,7 @@ class RRPhotoHelper: NSObject {
         // 1
         let alertController = UIAlertController(title: nil, message: "Where do you want to get your receipt from?", preferredStyle: .actionSheet)
         
-        let manual = UIAlertAction(title: "Fill an Empty Form", style: .default, handler: {action in viewController.performSegue(withIdentifier: "segueToReceiptForm", sender: nil)
-            
+        let manual = UIAlertAction(title: "Fill an Empty Form", style: .default, handler: {action in viewController.performSegue(withIdentifier: "newReceipt", sender: nil)
             
         })
         
