@@ -18,7 +18,17 @@ class ReceiptDetailViewController: UIViewController{
             tableView.reloadData()
         }
     }
-
+    
+    func getTotal()->Double{
+        var sum: Double = 0
+        
+        for i in 0..<items.count{
+            sum += items[i].price
+        }
+        
+        return sum
+        
+    }
 
     
     @IBOutlet weak var tableView: UITableView!
@@ -40,20 +50,24 @@ class ReceiptDetailViewController: UIViewController{
             // 2
             titleLabel.text = receipt.title
             dateLabel.text = receipt.date?.convertToString()
+            totalLabel.text = String(getTotal())
+            
+            
         } else {
             // 3
             titleLabel.text = ""
         }
     }
+    
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        if receipt == nil {
-//            self.performSegue(withIdentifier: "edit", sender: nil)
-//            
-//        }
-
     }
 
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if receipt != nil{
@@ -61,6 +75,8 @@ class ReceiptDetailViewController: UIViewController{
         }
     }
 
+   
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
