@@ -51,18 +51,19 @@ class ReceiptDetailViewController: UIViewController{
             titleLabel.text = receipt.title
             dateLabel.text = receipt.date?.convertToString()
             totalLabel.text = String(getTotal())
-            
+            tableView.reloadData()
             
         } else {
             // 3
             titleLabel.text = ""
-        }
+                }
     }
     
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        tableView.reloadData()
     }
 
     

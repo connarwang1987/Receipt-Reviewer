@@ -14,6 +14,8 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //UIImage(named: "icons8-Receipt-30.png")
+        //UIImage(named: "icons8-Combo Chart-30.png")
         // Do any additional setup after loading the view.
     }
 

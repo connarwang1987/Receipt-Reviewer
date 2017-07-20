@@ -13,18 +13,21 @@ protocol EditViewCellProtocol: class {
     func editPriceTextField(_ text: String, on cell: EditViewCell)
 
 }
+protocol EditViewCellProtocolDelete: class {
+    func deleteCell(for row: Int)
+}
 
 class EditViewCell: UITableViewCell {
-    
-    var items = [Item]() 
-    @IBOutlet weak var itemNameTextField: UITextField!
-    
-    @IBOutlet weak var itemPriceTextField: UITextField!
-    
+    var row: Int!
+    var items = [Item]()
     weak var delegate: EditViewCellProtocol?
+    weak var deleteDelegate: EditViewCellProtocolDelete?
     
+    @IBOutlet weak var itemNameTextField: UITextField!
+    @IBOutlet weak var itemPriceTextField: UITextField!
     @IBAction func deleteButtonTapped(_ sender: Any) {
-        
+        deleteDelegate?.deleteCell(for: row)
+        //tableView.setIsEditing(true, animated: true)
     }
     
     @IBAction func itemNameChanged(_ sender: UITextField) {
@@ -34,6 +37,11 @@ class EditViewCell: UITableViewCell {
     @IBAction func itemPriceChanged(_ sender: UITextField) {
         delegate?.editPriceTextField(sender.text ?? "", on: self)
     }
+    
+    
+    
+    
+    
     
     
     

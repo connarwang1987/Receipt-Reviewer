@@ -14,15 +14,15 @@ protocol EditViewControllerProtocol: class {
 }
 
 
-class EditViewController: UIViewController, EditViewCellProtocol {
+class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellProtocolDelete {
     var items = [Item]()
     var item: Item?
     var receipt: Receipt?
     var isEditingReceipt = false
     var tempItemNames = [String]()
     var tempItemPrices = [String]()
-    
     weak var delegate: EditViewControllerProtocol?
+    
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -39,6 +39,7 @@ class EditViewController: UIViewController, EditViewCellProtocol {
     @IBAction func addButtonTapped(_ sender: Any) {
         tempItemNames.append("")
         tempItemPrices.append("")
+        
         self.itemTable.reloadData()
 
         
@@ -46,6 +47,19 @@ class EditViewController: UIViewController, EditViewCellProtocol {
 //        item.itemID = receipt?.receiptID
 //        items.append(item)
 //        itemTable.reloadData()
+    }
+    
+    
+    func deleteCell(for row: Int) {
+        tempItemPrices.remove(at: row)
+        tempItemNames.remove(at: row)
+        
+        if row < items.count{
+            CoreDataHelper.deleteItem(item: items[row])
+        }
+        self.items = CoreDataHelper.retrieveItems(withID: (receipt?.receiptID)!)
+        
+        itemTable.reloadData()
     }
     
     
@@ -65,10 +79,6 @@ class EditViewController: UIViewController, EditViewCellProtocol {
                 
                 
             }
-            
-            
-            
-            
         }
     }
     
@@ -78,41 +88,55 @@ class EditViewController: UIViewController, EditViewCellProtocol {
             if tempItemNames.isEmpty {
                 return
             }
-
-            //checking if labels are empty and if price can be convert to double
-            for i in 0..<tempItemNames.count {
-                if tempItemNames[i].isEmpty{
-                    print("empty label")
-                    return
+            if !isEditingReceipt{
+                
+                //checking if labels are empty and if price can be convert to double
+                for i in 0..<tempItemNames.count {
+                    if tempItemNames[i].isEmpty{
+                        print("empty label")
+                        return
+                    }
+                    
+                    if let _ = Double(tempItemPrices[i]) {
+                        continue
+                    } else{
+                        print("not a valid double")
+                        return
+                    }
                 }
                 
-                if let _ = Double(tempItemPrices[i]) {
-                    continue
-                } else{
-                    print("not a valid double")
-                    return
+                let receipt = CoreDataHelper.newReceipt()
+                receipt.title = receiptTitleTextField.text
+                receipt.receiptID = UUID().uuidString
+                receipt.date = NSDate()
+                CoreDataHelper.saveReceipt()
+                
+                for k in 0..<tempItemNames.count{
+                    let item = CoreDataHelper.newItem()
+                    item.name = tempItemNames[k]
+                    item.price = Double(tempItemPrices[k])!
+                    item.itemID = receipt.receiptID
+                    CoreDataHelper.saveItem()
                 }
+                
+                delegate?.reloadTableView()
+                dismiss(animated: true, completion: nil)
+            }else{
+                //
+                
+                for k in items.count..<tempItemNames.count{
+                    let item = CoreDataHelper.newItem()
+                    item.name = tempItemNames[k]
+                    item.price = Double(tempItemPrices[k])!
+                    item.itemID = receipt?.receiptID
+                    CoreDataHelper.saveItem()
+                    dismiss(animated: true, completion: nil)
+
+                }
+
             }
-            
-            let receipt = CoreDataHelper.newReceipt()
-            receipt.title = receiptTitleTextField.text
-            receipt.receiptID = UUID().uuidString
-            receipt.date = NSDate()
-            CoreDataHelper.saveReceipt()
-            
-            for k in 0..<tempItemNames.count{
-                let item = CoreDataHelper.newItem()
-                item.name = tempItemNames[k]
-                item.price = Double(tempItemPrices[k])!
-                item.itemID = receipt.receiptID
-                CoreDataHelper.saveItem()
-            }
-            
-            delegate?.reloadTableView()
-            dismiss(animated: true, completion: nil)
         }
     }
-    
     
     
     
@@ -148,7 +172,8 @@ extension EditViewController: UITableViewDataSource, UITableViewDelegate{
             itemCell.selectionStyle = .none
             
             itemCell.delegate = self
-            
+            itemCell.deleteDelegate = self
+            itemCell.row = row
             itemCell.itemNameTextField.text = tempItemNames[row]
             itemCell.itemPriceTextField.text = tempItemPrices[row]
             
@@ -162,9 +187,6 @@ extension EditViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         // 2
-        if editingStyle == .delete {
-            
-        }
     }
     
     
