@@ -51,6 +51,8 @@ class ReceiptDetailViewController: UIViewController{
             titleLabel.text = receipt.title
             dateLabel.text = receipt.date?.convertToString()
             totalLabel.text = String(getTotal())
+            items = CoreDataHelper.retrieveItems(withID: receipt.receiptID!)
+
             tableView.reloadData()
             
         } else {
@@ -61,10 +63,13 @@ class ReceiptDetailViewController: UIViewController{
     
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        tableView.reloadData()
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        if receipt != nil{
+//        }
+//
+//        tableView.reloadData()
+//    }
 
     
     

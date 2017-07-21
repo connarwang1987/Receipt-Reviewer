@@ -6,5 +6,7 @@ target 'Receipt Reviewer' do
   use_frameworks!
 
   # Pods for Receipt Reviewer
-  pod ’SwiftyJSON’
+  pod 'SwiftyJSON'
+  pod 'Alamofire'
+  
 end

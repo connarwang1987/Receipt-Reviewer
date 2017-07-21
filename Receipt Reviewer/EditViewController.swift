@@ -21,6 +21,7 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
     var isEditingReceipt = false
     var tempItemNames = [String]()
     var tempItemPrices = [String]()
+    
     weak var delegate: EditViewControllerProtocol?
     
     
@@ -57,8 +58,9 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
         if row < items.count{
             CoreDataHelper.deleteItem(item: items[row])
         }
+        if receipt != nil{
         self.items = CoreDataHelper.retrieveItems(withID: (receipt?.receiptID)!)
-        
+        }
         itemTable.reloadData()
     }
     
@@ -130,9 +132,10 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
                     item.price = Double(tempItemPrices[k])!
                     item.itemID = receipt?.receiptID
                     CoreDataHelper.saveItem()
+                }
                     dismiss(animated: true, completion: nil)
 
-                }
+                
 
             }
         }
