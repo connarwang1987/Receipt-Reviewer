@@ -10,13 +10,17 @@ import UIKit
 import Foundation
 
 class MainTabBarController: UITabBarController {
+    let photoHelper = RRPhotoHelper()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        photoHelper.completionHandler  = { image in
+            print("handle image")
+        }
 
-        //UIImage(named: "icons8-Receipt-30.png")
-        //UIImage(named: "icons8-Combo Chart-30.png")
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

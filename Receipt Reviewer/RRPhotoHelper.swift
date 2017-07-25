@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+
 
 class RRPhotoHelper: NSObject {
     
     var completionHandler: ((UIImage) -> Void)?
+    var pickedImage: UIImage? = nil
     
     // MARK: - Helper Methods
     
@@ -33,6 +37,7 @@ class RRPhotoHelper: NSObject {
             })
             // 4
             alertController.addAction(capturePhotoAction)
+            
         }
         
         // 5
@@ -42,6 +47,7 @@ class RRPhotoHelper: NSObject {
             })
             
             alertController.addAction(uploadAction)
+    
         }
         
         // 6
@@ -55,17 +61,25 @@ class RRPhotoHelper: NSObject {
     func presentImagePickerController(with sourceType: UIImagePickerControllerSourceType, from viewController: UIViewController) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = sourceType
-        
+        imagePickerController.delegate = self
         viewController.present(imagePickerController, animated: true)
     }
+    
+    
+    
+    
 }
 
 
 extension RRPhotoHelper: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            pickedImage = selectedImage
+            
             completionHandler?(selectedImage)
+            
         }
+        
         
         picker.dismiss(animated: true)
     }
@@ -74,3 +88,5 @@ extension RRPhotoHelper: UINavigationControllerDelegate, UIImagePickerController
         picker.dismiss(animated: true)
     }
 }
+
+

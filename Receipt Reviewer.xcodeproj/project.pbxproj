@@ -29,6 +29,7 @@
 		81F4F0801F1EAA7F00163D18 /* Receipt+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F4F07C1F1EAA7F00163D18 /* Receipt+CoreDataProperties.swift */; };
 		81F4F0861F201CE900163D18 /* icons8-Receipt-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 81F4F0851F201CE900163D18 /* icons8-Receipt-30.png */; };
 		81F4F0881F201D0500163D18 /* icons8-Combo Chart-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 81F4F0871F201D0500163D18 /* icons8-Combo Chart-30.png */; };
+		81F4F08E1F268D5000163D18 /* VisionAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F4F08D1F268D5000163D18 /* VisionAPIHelper.swift */; };
 		AAE3D44E633C14F31EBC209A /* Pods_Receipt_Reviewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54789526893C308A89DAD03A /* Pods_Receipt_Reviewer.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		81F4F07C1F1EAA7F00163D18 /* Receipt+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Receipt+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		81F4F0851F201CE900163D18 /* icons8-Receipt-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Receipt-30.png"; sourceTree = "<group>"; };
 		81F4F0871F201D0500163D18 /* icons8-Combo Chart-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Combo Chart-30.png"; sourceTree = "<group>"; };
+		81F4F08D1F268D5000163D18 /* VisionAPIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionAPIHelper.swift; sourceTree = "<group>"; };
 		B0BEB00EF7DFFD47E198C76E /* Pods-Receipt Reviewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Receipt Reviewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Receipt Reviewer/Pods-Receipt Reviewer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +193,7 @@
 			children = (
 				81D700A11F14218D003BB738 /* RRPhotoHelper.swift */,
 				814588BF1F17E798003D4C18 /* CoreDataHelper.swift */,
+				81F4F08D1F268D5000163D18 /* VisionAPIHelper.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				814588BA1F168749003D4C18 /* Receipt.swift in Sources */,
 				81D700991F13EE7B003BB738 /* ReceiptViewCell.swift in Sources */,
 				814588B51F153837003D4C18 /* ReceiptDetailViewController.swift in Sources */,
+				81F4F08E1F268D5000163D18 /* VisionAPIHelper.swift in Sources */,
 				81D700A21F14218D003BB738 /* RRPhotoHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
