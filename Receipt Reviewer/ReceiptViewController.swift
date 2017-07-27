@@ -13,7 +13,10 @@ import SwiftyJSON
 
 class ReceiptViewController: UIViewController {
     let photoHelper = RRPhotoHelper()
-    
+    var visionResponse : String?
+    var textCount : Int?
+    var coordinats : Int?
+    var visionCoordinates: [Int]? = nil
     let apiKey = "AIzaSyCPweDaQiAX7fnfoxi5Cx8FmS9QTEdpl24"
     let baseURL = "https://vision.googleapis.com/v1/images:annotate?key="
    
@@ -22,6 +25,7 @@ class ReceiptViewController: UIViewController {
             tableView.reloadData()
         }
     }
+    var apiResponse: JSON? = nil
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -30,82 +34,27 @@ class ReceiptViewController: UIViewController {
         receipts = CoreDataHelper.retrieveReceipts()
         photoHelper.completionHandler = { (image) in
             print(image)
-            VisionAPIHelper.sendImage(image: self.photoHelper.pickedImage!, onCompletion: { (json) in
+            VisionAPIHelper.sendImage(image: self.photoHelper.pickedImage!, onCompletion: { [unowned self] (json) in
                 print(json)
+                self.visionResponse = json["responses"][0]["textAnnotations"][0]["description"].stringValue
+//                print(json["responses"][0]["textAnnotations"][0]["description"].stringValue)
+//                self.visionCoordinates =  json["responses"][0]["textAnnotations"][0]["boundingPoly"]["vertices"][0]["y"].intValue
+                self.coordinats =  json["responses"][0]["textAnnotations"][3]["boundingPoly"]["vertices"][2]["y"].intValue
+                let textAnnotationsCount = json["responses"][0]["textAnnotations"].arrayValue.count
+                var yCoordinatesArray1 : [Int] = []
+                var yCoordinatesArray2 : [Int] = []
+                for i in 1..<json["responses"][0]["textAnnotations"].arrayValue.count{
+                    yCoordinatesArray1.append(json["responses"][0]["textAnnotations"][i]["boundingPoly"]["vertices"][0]["y"].intValue)
+            
+                    yCoordinatesArray2.append(json["responses"][0]["textAnnotations"][i]["boundingPoly"]["vertices"][2]["y"].intValue)
+
+                }
+                
+                self.visionCoordinates = yCoordinatesArray1
+                
+                self.performSegue(withIdentifier: "newReceipt", sender: nil)
             })
         }
-//
-//        let url = baseURL + apiKey
-//        
-//        let sampleImage = UIImage(named: "sample")
-//        
-//        let image = UIImageJPEGRepresentation(sampleImage!, 1.0)?.base64EncodedString()
-//
-//        let params: Parameters = ["requests": ["features": ["type": "LABEL_DETECTION"]], "image": ["content": image]]
-//        
-//        
-//        
-//        
-//        
-//        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { (response) in
-//            print(response)
-//        }
-//            
-//        func base64EncodeImage(_ image: UIImage) -> String {
-//            var imagedata = UIImagePNGRepresentation(image)
-//            
-//            if ((imagedata?.count)! > 2097152) {
-//                let oldSize: CGSize = image.size
-//                let newSize: CGSize = CGSize(width: 800, height: oldSize.height / oldSize.width * 800)
-//                imagedata = resizeImage(newSize, image: image)
-//            }
-//            
-//            return imagedata!.base64EncodedString(options: .endLineWithCarriageReturn)
-//        }
-//        
-//        
-//        
-//        func resizeImage(_ imageSize: CGSize, image: UIImage) -> Data {
-//            UIGraphicsBeginImageContext(imageSize)
-//            image.draw(in: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height))
-//            let newImage = UIGraphicsGetImageFromCurrentImageContext()
-//            let resizedImage = UIImagePNGRepresentation(newImage!)
-//            UIGraphicsEndImageContext()
-//            return resizedImage!
-//        }
-//
-//        let apiKey = "AIzaSyCPweDaQiAX7fnfoxi5Cx8FmS9QTEdpl24"
-//        var googleURL: URL {
-//            return URL(string: "https://vision.googleapis.com/v1/images:annotate?key=\(apiKey)")!
-//        }
-//        let imageBase64 = base64EncodeImage(photoHelper.pickedImage!)
-//        let paramsAsJSON: Parameters = [
-//        "requests": [
-//        "image": [
-//        "content": imageBase64
-//        ],
-//        "features": [
-//        [
-//        "type": "TEXT_DETECTION",
-//        "maxResults": 10
-//        ]
-//        ]
-//        ]
-//        ]
-//        
-//        let headers: HTTPHeaders = ["Content-Type": "application/json"]
-//        
-//        Alamofire.request(googleURL, method: .post, parameters: paramsAsJSON, encoding: JSONEncoding.default, headers: headers).responseData { (response) in
-//            print(response)
-//            
-//            let json = JSON(response.data)
-//            
-//            print(json)
-//            
-//        }
-//        
-//        
-//        
         
     }
     
@@ -140,6 +89,15 @@ class ReceiptViewController: UIViewController {
             if let navVC = segue.destination as? UINavigationController {
                 if let destinationVC = navVC.topViewController as? EditViewController{
                     destinationVC.delegate = self
+                    if let visionResponse = visionResponse {
+                        destinationVC.visionResponse = visionResponse
+                    }
+                    if let visionCoordinates = visionCoordinates{
+                        destinationVC.visionCoordinates = visionCoordinates
+                    }
+                    if let coordinats = coordinats{
+                        destinationVC.coordinats = coordinats
+                    }
                 }
             }
         }

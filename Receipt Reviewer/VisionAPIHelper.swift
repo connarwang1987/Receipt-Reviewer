@@ -58,11 +58,11 @@ struct VisionAPIHelper {
         let headers: HTTPHeaders = ["Content-Type": "application/json"]
         
         Alamofire.request(googleURL, method: .post, parameters: paramsAsJSON, encoding: JSONEncoding.default, headers: headers).responseData { (response) in
-            print(response)
+//            print(response)
             
             let json = JSON(response.data)
             
-            print(json)
+//            print(json)
             
             onCompletion(json)
         }

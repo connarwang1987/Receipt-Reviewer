@@ -82,6 +82,7 @@ extension RRPhotoHelper: UINavigationControllerDelegate, UIImagePickerController
         
         
         picker.dismiss(animated: true)
+
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

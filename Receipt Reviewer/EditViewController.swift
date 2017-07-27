@@ -18,10 +18,13 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
     var items = [Item]()
     var item: Item?
     var receipt: Receipt?
+    var visionResponse : String?
+    var coordinats: Int?
+    var visionCoordinates : [Int] = []
     var isEditingReceipt = false
     var tempItemNames = [String]()
     var tempItemPrices = [String]()
-    
+    let vision = VisionAPIHelper()
     weak var delegate: EditViewControllerProtocol?
     
     
@@ -64,11 +67,32 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
         itemTable.reloadData()
     }
     
-    
+    func getValue(response:String) {
+        let info = response.components(separatedBy: "\n")
+        for i in 0..<info.count-1{
+            if let _ = Double(info[i])
+            {
+                tempItemPrices.append(info[i])
+            }
+            else if String(info[i].characters.first!) == "$"
+            {
+                let index = info[i].index(info[i].startIndex, offsetBy: 1)
+                tempItemPrices.append(info[i].substring(from: index))
+            }
+            else if info[i] == "$"
+            {
+                tempItemPrices.append(info[i+1])
+            }
+        }
+        
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print (visionResponse!)
+        dump (visionCoordinates)
+        print (coordinats!)
         
         if isEditingReceipt {
             receiptTitleTextField.text = receipt!.title
@@ -90,6 +114,9 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
             if tempItemNames.isEmpty {
                 return
             }
+//            if !isEditingReceipt && vision.apiResponse[0] != nil{
+            
+            
             if !isEditingReceipt{
                 
                 //checking if labels are empty and if price can be convert to double
