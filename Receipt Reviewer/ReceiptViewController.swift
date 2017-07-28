@@ -16,7 +16,9 @@ class ReceiptViewController: UIViewController {
     var visionResponse : String?
     var textCount : Int?
     var coordinats : Int?
-    var visionCoordinates: [Int]? = nil
+    var visionCoordinates1: [Int]? = nil
+    var visionCoordinates2: [Int]? = nil
+    var visionDescription:[String]? = nil
     let apiKey = "AIzaSyCPweDaQiAX7fnfoxi5Cx8FmS9QTEdpl24"
     let baseURL = "https://vision.googleapis.com/v1/images:annotate?key="
    
@@ -43,6 +45,10 @@ class ReceiptViewController: UIViewController {
                 let textAnnotationsCount = json["responses"][0]["textAnnotations"].arrayValue.count
                 var yCoordinatesArray1 : [Int] = []
                 var yCoordinatesArray2 : [Int] = []
+                var jsonDescription: [String] = []
+                for k in 1..<json["responses"][0]["textAnnotations"].arrayValue.count{
+                    jsonDescription.append(json["responses"][0]["textAnnotations"][k]["description"].stringValue)
+                }
                 for i in 1..<json["responses"][0]["textAnnotations"].arrayValue.count{
                     yCoordinatesArray1.append(json["responses"][0]["textAnnotations"][i]["boundingPoly"]["vertices"][0]["y"].intValue)
             
@@ -50,7 +56,9 @@ class ReceiptViewController: UIViewController {
 
                 }
                 
-                self.visionCoordinates = yCoordinatesArray1
+                self.visionCoordinates1 = yCoordinatesArray1
+                self.visionCoordinates2 = yCoordinatesArray2
+                self.visionDescription = jsonDescription
                 
                 self.performSegue(withIdentifier: "newReceipt", sender: nil)
             })
@@ -92,9 +100,16 @@ class ReceiptViewController: UIViewController {
                     if let visionResponse = visionResponse {
                         destinationVC.visionResponse = visionResponse
                     }
-                    if let visionCoordinates = visionCoordinates{
-                        destinationVC.visionCoordinates = visionCoordinates
+                    if let visionCoordinates1 = visionCoordinates1{
+                        destinationVC.visionCoordinates1 = visionCoordinates1
                     }
+                    if let visionCoordinates2 = visionCoordinates2{
+                        destinationVC.visionCoordinates2 = visionCoordinates2
+                    }
+                    if let visionDescription = visionDescription{
+                        destinationVC.visionDescription = visionDescription
+                    }
+                
                     if let coordinats = coordinats{
                         destinationVC.coordinats = coordinats
                     }

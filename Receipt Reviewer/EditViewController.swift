@@ -20,11 +20,17 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
     var receipt: Receipt?
     var visionResponse : String?
     var coordinats: Int?
-    var visionCoordinates : [Int] = []
+    var visionCoordinates1 : [Int] = []
+    var visionCoordinates2 : [Int] = []
+    var visionDescription : [String] = []
     var isEditingReceipt = false
     var tempItemNames = [String]()
     var tempItemPrices = [String]()
     let vision = VisionAPIHelper()
+    
+    var jsonDict : [String: Int] = [:]
+    
+    
     weak var delegate: EditViewControllerProtocol?
     
     
@@ -67,32 +73,114 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
         itemTable.reloadData()
     }
     
-    func getValue(response:String) {
-        let info = response.components(separatedBy: "\n")
-        for i in 0..<info.count-1{
-            if let _ = Double(info[i])
-            {
-                tempItemPrices.append(info[i])
+//    func match(response: String){
+//        let info = response.components(separatedBy: "\n")
+//        var commonIndexes: [Int] = []
+//        for i in 0..<visionCoordinates1.count{
+//            
+//            // for coord in visionCoord
+//            //      if visionCoord[i] - 10 < coord && coord < visionCoord[i] + 10
+//            
+//            for count in 1...10{
+//                var potentialValue = visionCoordinates1[i] - 5
+//                for l in 0..<visionCoordinates1.count-1{
+//                    if potentialValue == visionCoordinates1[l]{
+//                        commonIndexes.append(l)
+//                    }
+//                }
+//                potentialValue += 1
+//            }
+//            for k in 0..<commonIndexes.count-1{
+//                if let _ = Double(info[commonIndexes[k]])
+//                {
+//                    tempItemPrices.append(info[commonIndexes[k]])
+//                    
+//                }
+//                else if String(info[commonIndexes[k]].characters.first!) == "$"
+//                {
+//                    let index = info[commonIndexes[k]].index(info[commonIndexes[k]].startIndex, offsetBy: 1)
+//                    tempItemPrices.append(info[commonIndexes[k]].substring(from: index))
+//                }
+//                else
+//                {
+//                    tempItemNames.append(String(info[commonIndexes[k]]))
+//                }
+//
+//            }
+//        }
+//            
+//        
+//
+//    }
+//    
+    func match(){
+        
+        while (Array(jsonDict.keys).filter({ Double($0) != nil }).count > 0) {
+            var tempLineWords : [String] = []
+            
+            // find $ or double
+            let dollarOrDouble = Array(jsonDict.keys).first(where: { Double($0) != nil || $0.contains("$") })
+            let dollarOrDoubleY = jsonDict[dollarOrDouble!]!
+            jsonDict.removeValue(forKey: dollarOrDouble!)
+            tempLineWords.append(dollarOrDouble!)
+
+            // find all words with similar y
+            for (key, value) in jsonDict {
+                if dollarOrDoubleY - 10  < value && value < dollarOrDoubleY + 10 {
+                    tempLineWords.append(key)
+                    jsonDict.removeValue(forKey: key)
+                    
+                }
             }
-            else if String(info[i].characters.first!) == "$"
-            {
-                let index = info[i].index(info[i].startIndex, offsetBy: 1)
-                tempItemPrices.append(info[i].substring(from: index))
+
+                tempItemPrices.append(tempLineWords[0])
+            var tempLineStrings: [String] = []
+            for i in 1..<tempLineWords.count-1{
+                tempLineStrings.append(tempLineWords[i])
             }
-            else if info[i] == "$"
-            {
-                tempItemPrices.append(info[i+1])
-            }
+                let joined = tempLineStrings.joined(separator: " ")
+
+                tempItemNames.append(joined)
+            print(tempLineWords)
         }
+    
+        
         
     }
     
     
+//    func match2(){
+//        for i in 0..<visionDescription.count-1{
+//            //if let num = Double(..) {..}
+//            if let num = Double(visionDescription[i]) || String(visionDescription[i].characters.first!) == "$"{
+//                for k in 0..<visionCoordinates1.count-1{
+//                    var tempLineWords : [String] = []
+//                    if (visionCoordinates1[i] - 5) < visionCoordinates1[k] && visionCoordinates1[k] < (visionCoordinates1[i] + 5) {
+//                        if visionDescription[k] == visionDescription[i]{
+//                            tempLineWords.append(visionDescription[k])
+//                        }
+//                        tempItemNames.append(tempLineWords.joined(separator: " "))
+//                        if String(visionDescription[i].characters.first!) == "$"{
+////                            tempItemPrices.append(visionDescription[i].remove(at: k))
+//                            tempItemPrices.append(visionDescription[i].trimmingCharacters(in: CharacterSet(charactersIn: "$")))
+//                        }else{
+//                            tempItemPrices.append(visionDescription[i])
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print (visionResponse!)
-        dump (visionCoordinates)
-        print (coordinats!)
+        dump (visionCoordinates1)
+        dump (visionCoordinates2)
+        dump (visionDescription)
+        for i in 0..<(visionCoordinates1.count) {
+            jsonDict[visionDescription[i]] = visionCoordinates1[i]
+        }
+        
         
         if isEditingReceipt {
             receiptTitleTextField.text = receipt!.title
@@ -106,6 +194,11 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
                 
             }
         }
+                if !isEditingReceipt{
+                    if visionResponse != nil{
+                        match()
+                    }
+                }
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
