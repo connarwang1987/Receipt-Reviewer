@@ -127,16 +127,17 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
             for j in 0..<items.count {
                 tempItemNames.append(items[j].name!)
                 tempItemPrices.append(String(items[j].price))
-                self.itemTable.reloadData()
                 
                 
             }
         }
-        if isScanningReceipt{
-            if visionResponse != nil{
-                match()
-            }
-        }
+        self.itemTable.reloadData()
+
+//        if isScanningReceipt{
+//            if visionResponse != nil{
+//                match()
+//            }
+//        }
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {

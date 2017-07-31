@@ -15,6 +15,9 @@ class ReceiptViewController: UIViewController {
     let photoHelper = RRPhotoHelper()
     var visionResponse : String?
     var textCount : Int?
+    var jsonDict : [String: Int] = [:]
+    var tempItemNames = [String]()
+    var tempItemPrices = [String]()
     var coordinats : Int?
     var visionCoordinates1: [Int]? = nil
     var visionCoordinates2: [Int]? = nil
@@ -36,6 +39,45 @@ class ReceiptViewController: UIViewController {
         receipts = CoreDataHelper.retrieveReceipts()
         tableView.reloadData()
     }
+    
+    func match(){
+        for i in 0..<(visionCoordinates1?.count ?? 0) {
+            jsonDict[visionDescription![i]] = visionCoordinates1![i]
+        }
+        
+        while (Array(jsonDict.keys).filter({ Double($0) != nil }).count > 0) {
+            var tempLineWords : [String] = []
+            
+            // find $ or double
+            let dollarOrDouble = Array(jsonDict.keys).first(where: { Double($0) != nil || $0.contains("$") })
+            let dollarOrDoubleY = jsonDict[dollarOrDouble!]!
+            jsonDict.removeValue(forKey: dollarOrDouble!)
+            tempLineWords.append(dollarOrDouble!)
+            
+            // find all words with similar y
+            for (key, value) in jsonDict {
+                if dollarOrDoubleY - 10  < value && value < dollarOrDoubleY + 10 {
+                    tempLineWords.append(key)
+                    jsonDict.removeValue(forKey: key)
+                    
+                }
+            }
+            
+            tempItemPrices.append(tempLineWords[0])
+            var tempLineStrings: [String] = []
+            for i in 1..<tempLineWords.count-1{
+                tempLineStrings.append(tempLineWords[i])
+            }
+            let joined = tempLineStrings.joined(separator: " ")
+            
+            tempItemNames.append(joined)
+            print(tempLineWords)
+        }
+        
+        
+        
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,8 +107,10 @@ class ReceiptViewController: UIViewController {
                 self.visionCoordinates1 = yCoordinatesArray1
                 self.visionCoordinates2 = yCoordinatesArray2
                 self.visionDescription = jsonDescription
+                self.match()
+//                call match here
                 
-                self.performSegue(withIdentifier: "newReceipt", sender: nil)
+                self.performSegue(withIdentifier: "scanReceipt", sender: nil)
             })
         }
         
@@ -119,6 +163,19 @@ class ReceiptViewController: UIViewController {
                     if let coordinats = coordinats{
                         destinationVC.coordinats = coordinats
                     }
+                    
+                }
+                
+            }
+            
+        }
+        if segue.identifier == "scanReceipt"{
+            if let navVC = segue.destination as? UINavigationController {
+                if let destinationVC = navVC.topViewController as? EditViewController{
+                    destinationVC.tempItemNames = tempItemNames
+                    destinationVC.tempItemPrices = tempItemPrices
+                    tempItemPrices = []
+                    tempItemNames = []
                 }
             }
         }
