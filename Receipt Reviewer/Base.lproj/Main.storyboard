@@ -270,7 +270,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="49" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vtb-U4-hOP">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="49" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vtb-U4-hOP">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -293,7 +293,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ztp-T2-OR6">
                                                     <rect key="frame" x="299" y="8" width="83" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="83" id="N7T-Rt-Gee"/>
+                                                        <constraint firstAttribute="width" constant="83" id="dhe-BP-eaF"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -305,7 +305,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omK-sU-Ruv" userLabel="delete">
                                                     <rect key="frame" x="28" y="13" width="25" height="25"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="25" id="4N6-l1-fY0"/>
+                                                        <constraint firstAttribute="width" constant="25" id="7oR-E3-2v2"/>
                                                     </constraints>
                                                     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" image="Subtract"/>
@@ -316,13 +316,13 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="omK-sU-Ruv" firstAttribute="bottom" secondItem="wrj-1f-ccw" secondAttribute="bottom" id="Hyd-J5-rEj"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="ztp-T2-OR6" secondAttribute="trailing" constant="24" id="RAj-VS-8Xn"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="omK-sU-Ruv" secondAttribute="bottom" constant="2.5" id="UZT-vH-9Vv"/>
-                                                <constraint firstItem="omK-sU-Ruv" firstAttribute="top" secondItem="gLT-lW-ays" secondAttribute="topMargin" constant="5" id="uRY-pa-c3f"/>
-                                                <constraint firstItem="omK-sU-Ruv" firstAttribute="leading" secondItem="gLT-lW-ays" secondAttribute="leadingMargin" constant="20" id="vFI-ye-5Yx"/>
-                                                <constraint firstItem="wrj-1f-ccw" firstAttribute="leading" secondItem="omK-sU-Ruv" secondAttribute="trailing" constant="29" id="w9M-Bd-gzx"/>
-                                                <constraint firstItem="wrj-1f-ccw" firstAttribute="baseline" secondItem="ztp-T2-OR6" secondAttribute="baseline" id="wbZ-d0-WTp"/>
+                                                <constraint firstItem="omK-sU-Ruv" firstAttribute="top" secondItem="gLT-lW-ays" secondAttribute="topMargin" constant="5" id="2Fb-4L-s0e"/>
+                                                <constraint firstItem="wrj-1f-ccw" firstAttribute="baseline" secondItem="ztp-T2-OR6" secondAttribute="baseline" id="4vJ-Kk-1d5"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ztp-T2-OR6" secondAttribute="trailing" constant="24" id="6lf-Sn-aPK"/>
+                                                <constraint firstItem="omK-sU-Ruv" firstAttribute="leading" secondItem="gLT-lW-ays" secondAttribute="leadingMargin" constant="20" id="C1q-Za-h9u"/>
+                                                <constraint firstItem="omK-sU-Ruv" firstAttribute="bottom" secondItem="wrj-1f-ccw" secondAttribute="bottom" id="E0R-e0-D9N"/>
+                                                <constraint firstItem="wrj-1f-ccw" firstAttribute="leading" secondItem="omK-sU-Ruv" secondAttribute="trailing" constant="29" id="dVM-Eq-YIB"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="omK-sU-Ruv" secondAttribute="bottom" constant="2.6666666666666643" id="hYL-DY-Ma1"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -485,6 +485,6 @@
         <image name="icons8-Receipt-30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9Of-AE-teu"/>
+        <segue reference="XcB-UX-3oE"/>
     </inferredMetricsTieBreakers>
 </document>

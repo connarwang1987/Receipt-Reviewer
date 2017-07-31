@@ -31,6 +31,12 @@ class ReceiptViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        receipts = CoreDataHelper.retrieveReceipts()
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         receipts = CoreDataHelper.retrieveReceipts()
@@ -96,12 +102,12 @@ class ReceiptViewController: UIViewController {
             print("+ button tapped")
             if let navVC = segue.destination as? UINavigationController {
                 if let destinationVC = navVC.topViewController as? EditViewController{
-                    destinationVC.delegate = self
                     if let visionResponse = visionResponse {
                         destinationVC.visionResponse = visionResponse
                     }
                     if let visionCoordinates1 = visionCoordinates1{
                         destinationVC.visionCoordinates1 = visionCoordinates1
+                        destinationVC.isScanningReceipt = true
                     }
                     if let visionCoordinates2 = visionCoordinates2{
                         destinationVC.visionCoordinates2 = visionCoordinates2
@@ -163,11 +169,7 @@ extension ReceiptViewController: UITableViewDataSource, UITableViewDelegate
     }
 }
 
-extension ReceiptViewController: EditViewControllerProtocol{
-    func reloadTableView() {
-        receipts = CoreDataHelper.retrieveReceipts()
-    }
-}
+
 
 extension Date {
     func convertToString() -> String {

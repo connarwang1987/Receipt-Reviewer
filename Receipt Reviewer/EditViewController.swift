@@ -24,6 +24,7 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
     var visionCoordinates2 : [Int] = []
     var visionDescription : [String] = []
     var isEditingReceipt = false
+    var isScanningReceipt = false
     var tempItemNames = [String]()
     var tempItemPrices = [String]()
     let vision = VisionAPIHelper()
@@ -36,6 +37,7 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+        isScanningReceipt = false
     }
     
     @IBOutlet weak var receiptTitleTextField: UITextField!
@@ -73,48 +75,7 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
         itemTable.reloadData()
     }
     
-//    func match(response: String){
-//        let info = response.components(separatedBy: "\n")
-//        var commonIndexes: [Int] = []
-//        for i in 0..<visionCoordinates1.count{
-//            
-//            // for coord in visionCoord
-//            //      if visionCoord[i] - 10 < coord && coord < visionCoord[i] + 10
-//            
-//            for count in 1...10{
-//                var potentialValue = visionCoordinates1[i] - 5
-//                for l in 0..<visionCoordinates1.count-1{
-//                    if potentialValue == visionCoordinates1[l]{
-//                        commonIndexes.append(l)
-//                    }
-//                }
-//                potentialValue += 1
-//            }
-//            for k in 0..<commonIndexes.count-1{
-//                if let _ = Double(info[commonIndexes[k]])
-//                {
-//                    tempItemPrices.append(info[commonIndexes[k]])
-//                    
-//                }
-//                else if String(info[commonIndexes[k]].characters.first!) == "$"
-//                {
-//                    let index = info[commonIndexes[k]].index(info[commonIndexes[k]].startIndex, offsetBy: 1)
-//                    tempItemPrices.append(info[commonIndexes[k]].substring(from: index))
-//                }
-//                else
-//                {
-//                    tempItemNames.append(String(info[commonIndexes[k]]))
-//                }
-//
-//            }
-//        }
-//            
-//        
-//
-//    }
-//    
     func match(){
-        
         while (Array(jsonDict.keys).filter({ Double($0) != nil }).count > 0) {
             var tempLineWords : [String] = []
             
@@ -149,29 +110,6 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
     }
     
     
-//    func match2(){
-//        for i in 0..<visionDescription.count-1{
-//            //if let num = Double(..) {..}
-//            if let num = Double(visionDescription[i]) || String(visionDescription[i].characters.first!) == "$"{
-//                for k in 0..<visionCoordinates1.count-1{
-//                    var tempLineWords : [String] = []
-//                    if (visionCoordinates1[i] - 5) < visionCoordinates1[k] && visionCoordinates1[k] < (visionCoordinates1[i] + 5) {
-//                        if visionDescription[k] == visionDescription[i]{
-//                            tempLineWords.append(visionDescription[k])
-//                        }
-//                        tempItemNames.append(tempLineWords.joined(separator: " "))
-//                        if String(visionDescription[i].characters.first!) == "$"{
-////                            tempItemPrices.append(visionDescription[i].remove(at: k))
-//                            tempItemPrices.append(visionDescription[i].trimmingCharacters(in: CharacterSet(charactersIn: "$")))
-//                        }else{
-//                            tempItemPrices.append(visionDescription[i])
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         dump (visionCoordinates1)
@@ -194,11 +132,11 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
                 
             }
         }
-                if !isEditingReceipt{
-                    if visionResponse != nil{
-                        match()
-                    }
-                }
+        if isScanningReceipt{
+            if visionResponse != nil{
+                match()
+            }
+        }
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
@@ -207,7 +145,7 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
             if tempItemNames.isEmpty {
                 return
             }
-//            if !isEditingReceipt && vision.apiResponse[0] != nil{
+            //            if !isEditingReceipt && vision.apiResponse[0] != nil{
             
             
             if !isEditingReceipt{
@@ -244,8 +182,19 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
                 delegate?.reloadTableView()
                 dismiss(animated: true, completion: nil)
             }else{
-                //
-                
+                print("true")
+                receipt?.title = receiptTitleTextField.text
+
+                for j in 0..<items.count{
+                    if items[j].name != tempItemNames[j]{
+                        items[j].name = tempItemNames[j]
+                    }
+                    if items[j].price != Double(tempItemPrices[j]){
+                        self.items[j].price = Double(tempItemPrices[j])!
+                    }
+                    CoreDataHelper.saveItem()
+                }
+                // add in new items created
                 for k in items.count..<tempItemNames.count{
                     let item = CoreDataHelper.newItem()
                     item.name = tempItemNames[k]
@@ -253,12 +202,14 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
                     item.itemID = receipt?.receiptID
                     CoreDataHelper.saveItem()
                 }
-                    dismiss(animated: true, completion: nil)
-
+                delegate?.reloadTableView()
+                dismiss(animated: true, completion: nil)
                 
-
+                
+                
             }
         }
+        isScanningReceipt = false
     }
     
     
@@ -271,6 +222,8 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
     func editPriceTextField(_ text: String, on cell: EditViewCell){
         let index = itemTable.indexPath(for: cell)?.row
         tempItemPrices[index!] = text
+        
+        
     }
     
 }
