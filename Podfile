@@ -8,5 +8,16 @@ target 'Receipt Reviewer' do
   # Pods for Receipt Reviewer
   pod 'SwiftyJSON'
   pod 'Alamofire'
+  pod 'Charts', '~> 3.0.1'
+  pod 'RealmSwift', '~> 2.0.2'
+
+  post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['SWIFT_VERSION'] = '3.0'
+      end
+    end
+  end
+
   
 end

@@ -9,7 +9,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Charts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Receipt Reviewer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Realm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RealmSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,17 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>7167783E17E9B36DED0840251365B06C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>97210D2706ADDDA28B7A7445D7AD1B76</key>
+		<key>DF10926BAA78AD618919D455700FE05E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9D0C423EBB2195C8BAD333307DAD2803</key>
+		<key>F307B842FF76B2DE6C55DB67C0885325</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F675652C0454F1D7E44B048CB8447274</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FEE3BA1BD0E474DAC2045D584C9285CC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

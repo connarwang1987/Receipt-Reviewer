@@ -14,7 +14,7 @@ protocol EditViewControllerProtocol: class {
 }
 
 
-class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellProtocolDelete {
+class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellProtocolDelete, UIPickerViewDelegate {
     var items = [Item]()
     var item: Item?
     var receipt: Receipt?
@@ -28,12 +28,13 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
     var tempItemNames = [String]()
     var tempItemPrices = [String]()
     let vision = VisionAPIHelper()
-    
     var jsonDict : [String: Int] = [:]
+    let salutations = ["", "Grocery", "Outside Dinning", "Business", "Entertainment", "Health", "Activity", "Travel", "Rent", "Transportation", "Bill", "Others"]
     
     
     weak var delegate: EditViewControllerProtocol?
     
+    @IBOutlet weak var pickerTextField: UITextField!
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -60,6 +61,23 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
 //        items.append(item)
 //        itemTable.reloadData()
     }
+    //functions for pickerField
+    func numberOfComponentsInPickerView(pickerView: UIPickerView)-> Int {
+    return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    return salutations.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    return salutations[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        pickerTextField.text = salutations[row]
+    }
+    func donePicker() {
+        pickerTextField.resignFirstResponder()
+    }
+
     
     
     func deleteCell(for row: Int) {
@@ -112,6 +130,34 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let pickerView = UIPickerView()
+//        pickerView.delegate = self
+        
+        let picker = UIPickerView()
+        picker.backgroundColor = .white
+
+        picker.showsSelectionIndicator = true
+        picker.delegate = self
+//        picker.dataSource = self
+        
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: Selector("donePicker"))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: "donePicker")
+        
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        
+        pickerTextField.inputView = picker
+        pickerTextField.inputAccessoryView = toolBar
+        
+        //
         dump (visionCoordinates1)
         dump (visionCoordinates2)
         dump (visionDescription)
@@ -122,6 +168,7 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
         
         if isEditingReceipt {
             receiptTitleTextField.text = receipt!.title
+            pickerTextField.text = receipt!.type
             
             self.items = CoreDataHelper.retrieveItems(withID: (receipt?.receiptID)!)
             for j in 0..<items.count {
@@ -132,12 +179,6 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
             }
         }
         self.itemTable.reloadData()
-
-//        if isScanningReceipt{
-//            if visionResponse != nil{
-//                match()
-//            }
-//        }
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
@@ -167,9 +208,18 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
                 }
                 
                 let receipt = CoreDataHelper.newReceipt()
+                
                 receipt.title = receiptTitleTextField.text
                 receipt.receiptID = UUID().uuidString
                 receipt.date = NSDate()
+                receipt.type = pickerTextField.text
+                var tempsum = 0.0
+                for l in 0..<tempItemPrices.count{
+                    tempsum = tempsum + Double(tempItemPrices[l])!
+                
+                }
+                receipt.total = tempsum
+                
                 CoreDataHelper.saveReceipt()
                 
                 for k in 0..<tempItemNames.count{
@@ -177,6 +227,7 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
                     item.name = tempItemNames[k]
                     item.price = Double(tempItemPrices[k])!
                     item.itemID = receipt.receiptID
+                    
                     CoreDataHelper.saveItem()
                 }
                 
@@ -203,6 +254,11 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
                     item.itemID = receipt?.receiptID
                     CoreDataHelper.saveItem()
                 }
+                var temptol = 0.0
+                for t in 0..<tempItemPrices.count{
+                    temptol = temptol + Double(tempItemPrices[t])!
+                }
+                receipt?.total = temptol
                 delegate?.reloadTableView()
                 dismiss(animated: true, completion: nil)
                 

@@ -1,9 +1,9 @@
 //
 //  Receipt+CoreDataProperties.swift
-//  Receipt Reviewer
+//  
 //
-//  Created by Linglong Wang on 7/18/17.
-//  Copyright © 2017 Connar Wang. All rights reserved.
+//  Created by Linglong Wang on 8/1/17.
+//
 //
 
 import Foundation
@@ -17,7 +17,9 @@ extension Receipt {
     }
 
     @NSManaged public var date: NSDate?
+    @NSManaged public var type: String?
     @NSManaged public var title: String?
     @NSManaged public var receiptID: String?
+    @NSManaged public var total: Double
 
 }

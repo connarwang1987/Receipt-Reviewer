@@ -28,9 +28,10 @@ class ReceiptDetailViewController: UIViewController{
         
         return sum
         
+        
     }
 
-    
+    @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -49,8 +50,10 @@ class ReceiptDetailViewController: UIViewController{
         if let receipt = receipt {
             // 2
             titleLabel.text = receipt.title
+            typeLabel.text = receipt.type
             dateLabel.text = receipt.date?.convertToString()
             totalLabel.text = String(getTotal())
+            receipt.total = getTotal()
             items = CoreDataHelper.retrieveItems(withID: receipt.receiptID!)
 
             tableView.reloadData()
