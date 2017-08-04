@@ -18,9 +18,6 @@
 		818D5D011F31251600CB2AD8 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818D5CFF1F31251600CB2AD8 /* Item+CoreDataClass.swift */; };
 		818D5D021F31251600CB2AD8 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818D5D001F31251600CB2AD8 /* Item+CoreDataProperties.swift */; };
 		818D5D101F3129CC00CB2AD8 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818D5D0F1F3129CC00CB2AD8 /* ChartViewController.swift */; };
-		818D5D121F312A9200CB2AD8 /* VisitorCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818D5D111F312A9200CB2AD8 /* VisitorCount.swift */; };
-		818D5D1B1F3131DB00CB2AD8 /* Receipt+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818D5D191F3131DB00CB2AD8 /* Receipt+CoreDataClass.swift */; };
-		818D5D1C1F3131DB00CB2AD8 /* Receipt+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818D5D1A1F3131DB00CB2AD8 /* Receipt+CoreDataProperties.swift */; };
 		81D700851F13E6CD003BB738 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D700841F13E6CD003BB738 /* AppDelegate.swift */; };
 		81D700871F13E6CD003BB738 /* ReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D700861F13E6CD003BB738 /* ReceiptViewController.swift */; };
 		81D7008A1F13E6CD003BB738 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D700881F13E6CD003BB738 /* Main.storyboard */; };
@@ -29,6 +26,9 @@
 		81D700971F13ED85003BB738 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D700961F13ED85003BB738 /* MainTabBarController.swift */; };
 		81D700991F13EE7B003BB738 /* ReceiptViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D700981F13EE7B003BB738 /* ReceiptViewCell.swift */; };
 		81D700A21F14218D003BB738 /* RRPhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D700A11F14218D003BB738 /* RRPhotoHelper.swift */; };
+		81DEEC761F339FE000E1ACFF /* Receipt+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DEEC741F339FE000E1ACFF /* Receipt+CoreDataClass.swift */; };
+		81DEEC771F339FE000E1ACFF /* Receipt+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DEEC751F339FE000E1ACFF /* Receipt+CoreDataProperties.swift */; };
+		81DEEC791F33ECCD00E1ACFF /* DataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DEEC781F33ECCD00E1ACFF /* DataGenerator.swift */; };
 		81F4F0861F201CE900163D18 /* icons8-Receipt-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 81F4F0851F201CE900163D18 /* icons8-Receipt-30.png */; };
 		81F4F0881F201D0500163D18 /* icons8-Combo Chart-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 81F4F0871F201D0500163D18 /* icons8-Combo Chart-30.png */; };
 		81F4F08E1F268D5000163D18 /* VisionAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F4F08D1F268D5000163D18 /* VisionAPIHelper.swift */; };
@@ -49,9 +49,6 @@
 		818D5CFF1F31251600CB2AD8 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		818D5D001F31251600CB2AD8 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		818D5D0F1F3129CC00CB2AD8 /* ChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
-		818D5D111F312A9200CB2AD8 /* VisitorCount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorCount.swift; sourceTree = "<group>"; };
-		818D5D191F3131DB00CB2AD8 /* Receipt+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Receipt+CoreDataClass.swift"; sourceTree = "<group>"; };
-		818D5D1A1F3131DB00CB2AD8 /* Receipt+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Receipt+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		81D700811F13E6CD003BB738 /* Receipt Reviewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Receipt Reviewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D700841F13E6CD003BB738 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81D700861F13E6CD003BB738 /* ReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +59,9 @@
 		81D700961F13ED85003BB738 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		81D700981F13EE7B003BB738 /* ReceiptViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptViewCell.swift; sourceTree = "<group>"; };
 		81D700A11F14218D003BB738 /* RRPhotoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRPhotoHelper.swift; sourceTree = "<group>"; };
+		81DEEC741F339FE000E1ACFF /* Receipt+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Receipt+CoreDataClass.swift"; sourceTree = "<group>"; };
+		81DEEC751F339FE000E1ACFF /* Receipt+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Receipt+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		81DEEC781F33ECCD00E1ACFF /* DataGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataGenerator.swift; sourceTree = "<group>"; };
 		81F4F0851F201CE900163D18 /* icons8-Receipt-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Receipt-30.png"; sourceTree = "<group>"; };
 		81F4F0871F201D0500163D18 /* icons8-Combo Chart-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Combo Chart-30.png"; sourceTree = "<group>"; };
 		81F4F08D1F268D5000163D18 /* VisionAPIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionAPIHelper.swift; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				814588B91F168749003D4C18 /* ReceiptType.swift */,
-				818D5D111F312A9200CB2AD8 /* VisitorCount.swift */,
+				81DEEC781F33ECCD00E1ACFF /* DataGenerator.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -110,8 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				814588BC1F17E6CD003D4C18 /* ReceiptReviewer.xcdatamodeld */,
-				818D5D191F3131DB00CB2AD8 /* Receipt+CoreDataClass.swift */,
-				818D5D1A1F3131DB00CB2AD8 /* Receipt+CoreDataProperties.swift */,
+				81DEEC741F339FE000E1ACFF /* Receipt+CoreDataClass.swift */,
+				81DEEC751F339FE000E1ACFF /* Receipt+CoreDataProperties.swift */,
 				818D5CFF1F31251600CB2AD8 /* Item+CoreDataClass.swift */,
 				818D5D001F31251600CB2AD8 /* Item+CoreDataProperties.swift */,
 			);
@@ -330,14 +330,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				818D5D1C1F3131DB00CB2AD8 /* Receipt+CoreDataProperties.swift in Sources */,
 				814588C61F192C71003D4C18 /* EditViewController.swift in Sources */,
 				814588C01F17E798003D4C18 /* CoreDataHelper.swift in Sources */,
 				814588BE1F17E6CD003D4C18 /* ReceiptReviewer.xcdatamodeld in Sources */,
-				818D5D1B1F3131DB00CB2AD8 /* Receipt+CoreDataClass.swift in Sources */,
 				81D700871F13E6CD003BB738 /* ReceiptViewController.swift in Sources */,
 				814588C81F193035003D4C18 /* EditViewCell.swift in Sources */,
+				81DEEC761F339FE000E1ACFF /* Receipt+CoreDataClass.swift in Sources */,
 				818D5D101F3129CC00CB2AD8 /* ChartViewController.swift in Sources */,
+				81DEEC771F339FE000E1ACFF /* Receipt+CoreDataProperties.swift in Sources */,
 				81D700851F13E6CD003BB738 /* AppDelegate.swift in Sources */,
 				818D5D011F31251600CB2AD8 /* Item+CoreDataClass.swift in Sources */,
 				814588B71F153E49003D4C18 /* ReceiptDetailViewCell.swift in Sources */,
@@ -348,8 +348,8 @@
 				814588B51F153837003D4C18 /* ReceiptDetailViewController.swift in Sources */,
 				81F4F08E1F268D5000163D18 /* VisionAPIHelper.swift in Sources */,
 				818D5D021F31251600CB2AD8 /* Item+CoreDataProperties.swift in Sources */,
-				818D5D121F312A9200CB2AD8 /* VisitorCount.swift in Sources */,
 				81D700A21F14218D003BB738 /* RRPhotoHelper.swift in Sources */,
+				81DEEC791F33ECCD00E1ACFF /* DataGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

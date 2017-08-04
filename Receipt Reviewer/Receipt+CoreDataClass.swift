@@ -2,7 +2,7 @@
 //  Receipt+CoreDataClass.swift
 //  
 //
-//  Created by Linglong Wang on 8/1/17.
+//  Created by Linglong Wang on 8/3/17.
 //
 //
 

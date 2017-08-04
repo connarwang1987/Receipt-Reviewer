@@ -2,7 +2,7 @@
 //  Receipt+CoreDataProperties.swift
 //  
 //
-//  Created by Linglong Wang on 8/1/17.
+//  Created by Linglong Wang on 8/3/17.
 //
 //
 
@@ -17,9 +17,11 @@ extension Receipt {
     }
 
     @NSManaged public var date: NSDate?
-    @NSManaged public var type: String?
-    @NSManaged public var title: String?
     @NSManaged public var receiptID: String?
+    @NSManaged public var title: String?
     @NSManaged public var total: Double
+    @NSManaged public var type: String?
+    @NSManaged public var month: Int16
+    @NSManaged public var year: Int16
 
 }

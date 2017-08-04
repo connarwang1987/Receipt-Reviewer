@@ -212,6 +212,14 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
                 receipt.title = receiptTitleTextField.text
                 receipt.receiptID = UUID().uuidString
                 receipt.date = NSDate()
+                let monthFormatter = DateFormatter()
+                monthFormatter.dateFormat = "MM"
+                receipt.month = Int16(monthFormatter.string(from: receipt.date! as Date))!
+                let yearFormatter = DateFormatter()
+                yearFormatter.dateFormat = "yyyy"
+                receipt.year = Int16(yearFormatter.string(from: receipt.date! as Date))!
+
+
                 receipt.type = pickerTextField.text
                 var tempsum = 0.0
                 for l in 0..<tempItemPrices.count{
