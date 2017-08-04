@@ -39,6 +39,26 @@ class ChartViewController: UIViewController {
         
     }
     
+    func setChart(){
+        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        let monthlySpenses = DataGenerator.data()
+        var tempSpenses = [Double]()
+        for i in 0..<monthlySpenses.count{
+            tempSpenses.append(Double(monthlySpenses[i].value))
+        }
+        barView.setBarChartData(xValues: months, yValues: tempSpenses, label: "Monthly Expanse($)")
+        barView.legend.enabled = false
+        barView.scaleYEnabled = false
+        barView.scaleXEnabled = false
+        barView.pinchZoomEnabled = false
+        barView.doubleTapToZoomEnabled = false
+        barView.highlighter = nil
+        barView.rightAxis.enabled = false
+        barView.xAxis.drawGridLinesEnabled = false
+        barView.animate(yAxisDuration: 1.5, easingOption: .easeInOutQuart)
+
+
+    }
     
     func dataBuild() -> [Double]{
         //setting end and start year
@@ -152,6 +172,8 @@ class ChartViewController: UIViewController {
         pieView.centerText = ""
         pieView.holeRadiusPercent = 0.2
         pieView.transparentCircleColor = UIColor.clear
+        pieView.animate(yAxisDuration: 1.5, easingOption: .easeInOutQuart)
+
         
     }
     
@@ -164,6 +186,8 @@ class ChartViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+//        axisFormatDelegate = self
+        setChart()
         updateChartWithData()
         receipts = CoreDataHelper.retrieveReceipts()
         dataBuild()
@@ -171,40 +195,44 @@ class ChartViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         
-        let monthlySpenses = DataGenerator.data()
-        
-        // Initialize an array to store chart data entries (values; y axis)
-        var barEntries = [ChartDataEntry]()
-        
-        // Initialize an array to store months (labels; x axis)
-        var barMonths = [String]()
-        
-        var i = 0
-        for monthlySpense in monthlySpenses {
-            // Create single chart data entry and append it to the array
-//            let barEntry = BarChartDataEntry(value: monthlySpense.value, xIndex: i)
-            let barEntry = BarChartDataEntry(x: Double(i), y: monthlySpense.value)
-            barEntries.append(barEntry)
-            
-            // Append the month to the array
-            barMonths.append(monthlySpense.month)
-            
-            i += 1
-        }
-        
-        // Create bar chart data set containing salesEntries
-        let chartDataSet = BarChartDataSet(values: barEntries, label: "Profit")
-        
-        // Create bar chart data with data set and array with values for x axis
-//        let chartData = BarChartData(xVals: barMonths, dataSets: [chartDataSet])
-        let chartData = BarChartData(dataSets: [chartDataSet])
-        
-        // Set bar chart data to previously created data
-        barView.data = chartData
-        
-        
-        
-        
+//        let monthlySpenses = DataGenerator.data()
+//        
+//        // Initialize an array to store chart data entries (values; y axis)
+//        var barEntries = [ChartDataEntry]()
+//        
+//        // Initialize an array to store months (labels; x axis)
+//        var barMonths = [String]()
+//        
+//        var i = 0
+//        
+//        for monthlySpense in monthlySpenses {
+//            // Create single chart data entry and append it to the array
+////            let barEntry = BarChartDataEntry(value: monthlySpense.value, xIndex: i)
+//            let barEntry = BarChartDataEntry(x: Double(i), y: monthlySpense.value)
+//            barEntries.append(barEntry)
+//            
+//            // Append the month to the array
+//            let timeIntervalForDate: TimeInterval = 1
+//            barMonths.append(monthlySpense.month)
+//            
+//            i += 1
+//        }
+//        
+//        // Create bar chart data set containing salesEntries
+//        let chartDataSet = BarChartDataSet(values: barEntries, label: "Monthly Expense")
+//        
+//        // Create bar chart data with data set and array with values for x axis
+////        let chartData = BarChartData(xVals: barMonths, dataSets: [chartDataSet])
+//        let chartData = BarChartData(dataSets: [chartDataSet])
+//        
+//        // Set bar chart data to previously created data
+//        barView.data = chartData
+//        let formato:BarChartFormatter = BarChartFormatter()
+//        let xaxis:XAxis = XAxis()
+////        let xaxis = barView.xAxis
+//        xaxis.valueFormatter = axisFormatDelegate
+//        xaxis.labelPosition = XAxis.LabelPosition.bottom
+//        
         
     }
     
@@ -217,15 +245,42 @@ class ChartViewController: UIViewController {
 }
 
 
-extension ChartViewController: IAxisValueFormatter {
+extension BarChartView {
     
-    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm.ss"
-        return dateFormatter.string(from: Date(timeIntervalSince1970: value))
+    private class BarChartFormatter: NSObject, IAxisValueFormatter {
+        
+        var labels: [String] = []
+        
+        func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+            return labels[Int(value)]
+        }
+        
+        init(labels: [String]) {
+            super.init()
+            self.labels = labels
+        }
+    }
+    
+    func setBarChartData(xValues: [String], yValues: [Double], label: String) {
+        
+        var dataEntries: [BarChartDataEntry] = []
+        
+        for i in 0..<yValues.count {
+            let dataEntry = BarChartDataEntry(x: Double(i), y: yValues[i])
+            dataEntries.append(dataEntry)
+        }
+        
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: label)
+        let chartData = BarChartData(dataSet: chartDataSet)
+        
+        let chartFormatter = BarChartFormatter(labels: xValues)
+        let xAxis = XAxis()
+        xAxis.valueFormatter = chartFormatter
+        self.xAxis.valueFormatter = xAxis.valueFormatter
+        self.xAxis.labelPosition = .bottom
+        self.data = chartData
     }
 }
-
 extension Date {
   
     func isInSameMonth(date: Date) -> Bool {

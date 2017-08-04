@@ -16,13 +16,13 @@ class DataGenerator {
     var chartV = ChartViewController()
     static var receipts = [Receipt]()
     static var monthlyTotals = [Double]()
-    var tempSameMonth = [Receipt]()
-    var tempTotal = 0.0
-    var startYear: Int16 = 0
-    var endYear: Int16 = 0
+    static var tempSameMonth = [Receipt]()
+    static var tempTotal = 0.0
+    static var startYear: Int16 = 0
+    static var endYear: Int16 = 0
     
   
-    func sortDated(receiptsToSort sortThis: [Receipt]) -> [Receipt] {
+    static func sortDated(receiptsToSort sortThis: [Receipt]) -> [Receipt] {
         
         let result = sortThis.sorted(by: {
             let date0 = $0.date! as Date
@@ -36,7 +36,7 @@ class DataGenerator {
     }
     
     
-    func dataBuild() -> [Double]{
+    static func dataBuild() -> [Double]{
         //setting end and start year
         for r in 1..<DataGenerator.receipts.count{
             if DataGenerator.receipts[r].year <= DataGenerator.receipts[r-1].year{
@@ -73,7 +73,7 @@ class DataGenerator {
     static func data() -> [MonthlySpense] {
         
         receipts = CoreDataHelper.retrieveReceipts()
-        dataBuild(DataGenerator.receipts)
+        dataBuild()
         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         var monthlySpenses = [MonthlySpense]()
         var index = 0

@@ -182,6 +182,16 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
+        if receiptTitleTextField.text == "" {
+            let aC = UIAlertController(title: "Empty Fields", message: "Please don't leave blank spaces", preferredStyle: .alert)
+            
+            let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+            
+            aC.addAction(okButton)
+            
+            present(aC, animated: true, completion: nil)
+
+        }
         if !receiptTitleTextField.text!.isEmpty{
             
             if tempItemNames.isEmpty {
@@ -194,8 +204,16 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
                 
                 //checking if labels are empty and if price can be convert to double
                 for i in 0..<tempItemNames.count {
-                    if tempItemNames[i].isEmpty{
+                    if tempItemNames[i].isEmpty { 
                         print("empty label")
+                        let aC = UIAlertController(title: "Empty Fields", message: "Please don't leave blank spaces", preferredStyle: .alert)
+                        
+                        let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+                        
+                        aC.addAction(okButton)
+                        
+                        present(aC, animated: true, completion: nil)
+                        
                         return
                     }
                     
