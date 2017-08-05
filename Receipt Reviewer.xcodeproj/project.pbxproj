@@ -29,7 +29,7 @@
 		81DEEC761F339FE000E1ACFF /* Receipt+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DEEC741F339FE000E1ACFF /* Receipt+CoreDataClass.swift */; };
 		81DEEC771F339FE000E1ACFF /* Receipt+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DEEC751F339FE000E1ACFF /* Receipt+CoreDataProperties.swift */; };
 		81DEEC791F33ECCD00E1ACFF /* DataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DEEC781F33ECCD00E1ACFF /* DataGenerator.swift */; };
-		81DEEC7B1F34EF1C00E1ACFF /* BarChartFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DEEC7A1F34EF1C00E1ACFF /* BarChartFormatter.swift */; };
+		81DEEC801F35330300E1ACFF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DEEC7F1F35330300E1ACFF /* Default-568h@2x.png */; };
 		81F4F0861F201CE900163D18 /* icons8-Receipt-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 81F4F0851F201CE900163D18 /* icons8-Receipt-30.png */; };
 		81F4F0881F201D0500163D18 /* icons8-Combo Chart-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 81F4F0871F201D0500163D18 /* icons8-Combo Chart-30.png */; };
 		81F4F08E1F268D5000163D18 /* VisionAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F4F08D1F268D5000163D18 /* VisionAPIHelper.swift */; };
@@ -63,7 +63,7 @@
 		81DEEC741F339FE000E1ACFF /* Receipt+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Receipt+CoreDataClass.swift"; sourceTree = "<group>"; };
 		81DEEC751F339FE000E1ACFF /* Receipt+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Receipt+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		81DEEC781F33ECCD00E1ACFF /* DataGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataGenerator.swift; sourceTree = "<group>"; };
-		81DEEC7A1F34EF1C00E1ACFF /* BarChartFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartFormatter.swift; sourceTree = "<group>"; };
+		81DEEC7F1F35330300E1ACFF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		81F4F0851F201CE900163D18 /* icons8-Receipt-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Receipt-30.png"; sourceTree = "<group>"; };
 		81F4F0871F201D0500163D18 /* icons8-Combo Chart-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Combo Chart-30.png"; sourceTree = "<group>"; };
 		81F4F08D1F268D5000163D18 /* VisionAPIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionAPIHelper.swift; sourceTree = "<group>"; };
@@ -104,7 +104,6 @@
 			children = (
 				814588B91F168749003D4C18 /* ReceiptType.swift */,
 				81DEEC781F33ECCD00E1ACFF /* DataGenerator.swift */,
-				81DEEC7A1F34EF1C00E1ACFF /* BarChartFormatter.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -124,6 +123,7 @@
 		81D700781F13E6CD003BB738 = {
 			isa = PBXGroup;
 			children = (
+				81DEEC7F1F35330300E1ACFF /* Default-568h@2x.png */,
 				81D700831F13E6CD003BB738 /* Receipt Reviewer */,
 				81D700821F13E6CD003BB738 /* Products */,
 				478CFD667176496FE9668A6B /* Pods */,
@@ -220,6 +220,7 @@
 				81D7007F1F13E6CD003BB738 /* Resources */,
 				23645E8FD96818792DA1EA8A /* [CP] Embed Pods Frameworks */,
 				394B41780F200442CB2F7F69 /* [CP] Copy Pods Resources */,
+				81DEEC7E1F350A9300E1ACFF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -275,6 +276,7 @@
 				81F4F0861F201CE900163D18 /* icons8-Receipt-30.png in Resources */,
 				81D7008C1F13E6CD003BB738 /* Assets.xcassets in Resources */,
 				81D7008A1F13E6CD003BB738 /* Main.storyboard in Resources */,
+				81DEEC801F35330300E1ACFF /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +312,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Receipt Reviewer/Pods-Receipt Reviewer-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		81DEEC7E1F350A9300E1ACFF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 078e8dd462183375247f9884e27983f3c11e75d0 daddce5ea1861a4f980897139ec3d8459aee69fa071f742aca0ee3b6eb93c7df";
 		};
 		FB0322C758E7FA009C737B99 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -350,7 +365,6 @@
 				81D700991F13EE7B003BB738 /* ReceiptViewCell.swift in Sources */,
 				814588B51F153837003D4C18 /* ReceiptDetailViewController.swift in Sources */,
 				81F4F08E1F268D5000163D18 /* VisionAPIHelper.swift in Sources */,
-				81DEEC7B1F34EF1C00E1ACFF /* BarChartFormatter.swift in Sources */,
 				818D5D021F31251600CB2AD8 /* Item+CoreDataProperties.swift in Sources */,
 				81D700A21F14218D003BB738 /* RRPhotoHelper.swift in Sources */,
 				81DEEC791F33ECCD00E1ACFF /* DataGenerator.swift in Sources */,
@@ -480,7 +494,7 @@
 				DEVELOPMENT_TEAM = CNKMW85KL5;
 				INFOPLIST_FILE = "Receipt Reviewer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "none.Receipt-Reviewer";
+				PRODUCT_BUNDLE_IDENTIFIER = "Receipt-Reviewer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -494,7 +508,7 @@
 				DEVELOPMENT_TEAM = CNKMW85KL5;
 				INFOPLIST_FILE = "Receipt Reviewer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "none.Receipt-Reviewer";
+				PRODUCT_BUNDLE_IDENTIFIER = "Receipt-Reviewer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

@@ -221,6 +221,14 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
                         continue
                     } else{
                         print("not a valid double")
+                        let aC = UIAlertController(title: "Empty Fields", message: "Please don't leave blank spaces", preferredStyle: .alert)
+                        
+                        let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+                        
+                        aC.addAction(okButton)
+                        
+                        present(aC, animated: true, completion: nil)
+
                         return
                     }
                 }

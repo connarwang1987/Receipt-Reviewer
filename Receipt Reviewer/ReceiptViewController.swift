@@ -32,6 +32,7 @@ class ReceiptViewController: UIViewController {
     }
     var apiResponse: JSON? = nil
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,11 +42,15 @@ class ReceiptViewController: UIViewController {
     }
     
     func match(){
-        for i in 0..<(visionCoordinates1?.count ?? 0) {
+        
+        
+        for i in 0..<(visionCoordinates1?.count ?? 0)
+        {
             jsonDict[visionDescription![i]] = visionCoordinates1![i]
         }
         
-        while (Array(jsonDict.keys).filter({ Double($0) != nil }).count > 0) {
+        while (Array(jsonDict.keys).filter({ Double($0) != nil }).count > 0)
+        {
             var tempLineWords : [String] = []
             
             // find $ or double
@@ -65,7 +70,7 @@ class ReceiptViewController: UIViewController {
             
             tempItemPrices.append(tempLineWords[0])
             var tempLineStrings: [String] = []
-            for i in 1..<tempLineWords.count-1{
+            for i in 1..<tempLineWords.count{
                 tempLineStrings.append(tempLineWords[i])
             }
             let joined = tempLineStrings.joined(separator: " ")
@@ -73,9 +78,6 @@ class ReceiptViewController: UIViewController {
             tempItemNames.append(joined)
             print(tempLineWords)
         }
-        
-        
-        
     }
 
     
@@ -108,9 +110,12 @@ class ReceiptViewController: UIViewController {
                 self.visionCoordinates2 = yCoordinatesArray2
                 self.visionDescription = jsonDescription
                 self.match()
+
 //                call match here
                 
                 self.performSegue(withIdentifier: "scanReceipt", sender: nil)
+                self.activityIndicator.stopAnimating()
+
             })
         }
         
@@ -119,6 +124,7 @@ class ReceiptViewController: UIViewController {
     @IBAction func addButtonTapped(_ sender: Any) {
         print("AddButton Tapped")
         photoHelper.presentActionSheet(from: self)
+
     }
    
     

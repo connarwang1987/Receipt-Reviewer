@@ -10,6 +10,8 @@ target 'Receipt Reviewer' do
   pod 'Alamofire'
   pod 'Charts', '~> 3.0.1'
   pod 'RealmSwift', '~> 2.0.2'
+  pod 'Fabric'
+  pod 'Answers'
 
   post_install do |installer|
     installer.pods_project.targets.each do |target|

@@ -26,21 +26,22 @@ class ChartViewController: UIViewController {
     @IBOutlet weak var barView: BarChartView!
     weak var axisFormatDelegate: IAxisValueFormatter?
 
-    func sortDated(receiptsToSort sortThis: [Receipt]) -> [Receipt] {
-        
-        let result = sortThis.sorted(by: {
-            let date0 = $0.date! as Date
-            let date1 = $1.date! as Date
-            return date0 < date1
-        })
-        print(result)
-
-        return result
-        
-    }
+//    func sortDated(receiptsToSort sortThis: [Receipt]) -> [Receipt] {
+//        
+//        let result = sortThis.sorted(by: {
+//            let date0 = $0.date! as Date
+//            let date1 = $1.date! as Date
+//            return date0 < date1
+//        })
+//        print(result)
+//
+//        return result
+//        
+//    }
     
     func setChart(){
         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        
         let monthlySpenses = DataGenerator.data()
         var tempSpenses = [Double]()
         for i in 0..<monthlySpenses.count{
@@ -59,61 +60,43 @@ class ChartViewController: UIViewController {
 
 
     }
-    
-    func dataBuild() -> [Double]{
-        //setting end and start year
-        for r in 1..<receipts.count{
-            if receipts[r].year <= receipts[r-1].year{
-                startYear = receipts[r].year
-            }else{
-                startYear = receipts[r-1].year
-            }
-        }
-        for t in 1..<receipts.count{
-            if receipts[t].year >= receipts[t-1].year{
-                endYear = receipts[t].year
-            }else{
-                endYear = receipts[t-1].year
-            }
-        }
-        print(startYear)
-        print(endYear)
-        //the retrieve starts here
-        for y in startYear...endYear{
-            for m in 1...12{
-                tempTotal = 0.0
-                tempSameMonth = sortDated(receiptsToSort: receipts).filter {($0.month == Int16(m) ) && ($0.year == y)}
-                
-                for i in 0..<tempSameMonth.count{
-                    tempTotal += tempSameMonth[i].total
-                }
-                monthlyTotals.append(tempTotal)
-            }
-        }
-        return monthlyTotals
-    }
-   
-    func updateChartWithData() {
-//        var dataEntries: [BarChartDataEntry] = []
-//        
-////        let visitorCounts = getVisitorCountsFromDatabase()
-//        
-//        for i in 0..<visitorCounts.count {
-//            let timeIntervalForDate: TimeInterval = visitorCounts[i].date.timeIntervalSince1970
-//            let dataEntry = BarChartDataEntry(x: Double(timeIntervalForDate), y: Double(visitorCounts[i].count))
-//            dataEntries.append(dataEntry)
+//    
+//    func dataBuild() -> [Double]{
+//        //setting end and start year
+//        for r in 1..<receipts.count{
+//            if receipts[r].year <= receipts[r-1].year{
+//                startYear = receipts[r].year
+//            }else{
+//                startYear = receipts[r-1].year
+//            }
 //        }
-//        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Visitor count")
-//        let chartData = BarChartData(dataSet: chartDataSet)
-//        barView.data = chartData
-//        
-//        let xaxis = barView.xAxis
-//        xaxis.valueFormatter = axisFormatDelegate
-    }
+//        for t in 1..<receipts.count{
+//            if receipts[t].year >= receipts[t-1].year{
+//                endYear = receipts[t].year
+//            }else{
+//                endYear = receipts[t-1].year
+//            }
+//        }
+//        print(startYear)
+//        print(endYear)
+//        //the retrieve starts here
+//        for y in startYear...endYear{
+//            for m in 1...12{
+//                tempTotal = 0.0
+//                tempSameMonth = sortDated(receiptsToSort: receipts).filter {($0.month == Int16(m) ) && ($0.year == y)}
+//                
+//                for i in 0..<tempSameMonth.count{
+//                    tempTotal += tempSameMonth[i].total
+//                }
+//                monthlyTotals.append(tempTotal)
+//            }
+//        }
+//        return monthlyTotals
+//    }
+   
+   
     
-
-    
-    
+    //pie chart construction
     func updateChartData()  {
         // 2. generate chart data entries
         var typeToSum: [ReceiptType: Double] = [:]
@@ -181,16 +164,16 @@ class ChartViewController: UIViewController {
         super.viewWillAppear(animated)
         receipts = CoreDataHelper.retrieveReceipts()
         updateChartData()
-        
+        setChart()
         
     }
     override func viewDidLoad() {
         super.viewDidLoad()
 //        axisFormatDelegate = self
-        setChart()
-        updateChartWithData()
+        
+        
         receipts = CoreDataHelper.retrieveReceipts()
-        dataBuild()
+        
         print(monthlyTotals.count)
         // Do any additional setup after loading the view, typically from a nib.
         

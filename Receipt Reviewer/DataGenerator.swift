@@ -13,7 +13,6 @@ struct MonthlySpense {
 }
 
 class DataGenerator {
-    var chartV = ChartViewController()
     static var receipts = [Receipt]()
     static var monthlyTotals = [Double]()
     static var tempSameMonth = [Receipt]()
@@ -38,6 +37,12 @@ class DataGenerator {
     
     static func dataBuild() -> [Double]{
         //setting end and start year
+        guard DataGenerator.receipts.count > 0 else {
+            return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        }
+        
+        DataGenerator.monthlyTotals = []
+        if DataGenerator.receipts.count > 1{
         for r in 1..<DataGenerator.receipts.count{
             if DataGenerator.receipts[r].year <= DataGenerator.receipts[r-1].year{
                 startYear = DataGenerator.receipts[r].year
@@ -51,6 +56,10 @@ class DataGenerator {
             }else{
                 endYear = DataGenerator.receipts[t-1].year
             }
+        }
+        }else{
+            startYear = DataGenerator.receipts[0].year
+            endYear = DataGenerator.receipts[0].year
         }
         print(startYear)
         print(endYear)
@@ -73,17 +82,19 @@ class DataGenerator {
     static func data() -> [MonthlySpense] {
         
         receipts = CoreDataHelper.retrieveReceipts()
-        dataBuild()
+    
+        
         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         var monthlySpenses = [MonthlySpense]()
         var index = 0
         for month in months {
             
-            let monthlySpense = MonthlySpense(month: month, value: monthlyTotals[index])
+            let monthlySpense = MonthlySpense(month: month, value: dataBuild()[index])
             monthlySpenses.append(monthlySpense)
             index += 1
         }
         
         return monthlySpenses
     }
+        
 }

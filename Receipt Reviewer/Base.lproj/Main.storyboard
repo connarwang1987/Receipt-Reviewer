@@ -71,21 +71,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReceiptViewCell" id="mBZ-nB-BE8" customClass="ReceiptViewCell" customModule="Receipt_Reviewer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReceiptViewCell" rowHeight="80" id="mBZ-nB-BE8" customClass="ReceiptViewCell" customModule="Receipt_Reviewer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mBZ-nB-BE8" id="jwp-Mo-ac8">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receipt Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAz-Hc-Pb7">
-                                                    <rect key="frame" x="8" y="0.0" width="304" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receipt Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="326" translatesAutoresizingMaskIntoConstraints="NO" id="AAz-Hc-Pb7">
+                                                    <rect key="frame" x="8" y="0.0" width="304" height="57"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajR-ij-sRE">
-                                                    <rect key="frame" x="8" y="20" width="312" height="16"/>
+                                                    <rect key="frame" x="8" y="20" width="312" height="52"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -114,11 +114,18 @@
                                     <outlet property="delegate" destination="wML-nm-VqA" id="D9P-3U-OkW"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="j1L-mE-p6C">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="j1L-mE-p6C" firstAttribute="leading" secondItem="bLI-B9-Io7" secondAttribute="leading" id="0UV-5h-oZI"/>
                             <constraint firstItem="Uw5-A7-CrF" firstAttribute="top" secondItem="bLI-B9-Io7" secondAttribute="top" id="9lS-Od-hwR"/>
+                            <constraint firstAttribute="trailing" secondItem="j1L-mE-p6C" secondAttribute="trailing" id="AQd-w7-rjJ"/>
+                            <constraint firstItem="5IQ-qU-guH" firstAttribute="top" secondItem="j1L-mE-p6C" secondAttribute="bottom" id="T6R-o4-RQ5"/>
                             <constraint firstAttribute="bottom" secondItem="Uw5-A7-CrF" secondAttribute="bottom" id="Zda-nT-19G"/>
+                            <constraint firstItem="j1L-mE-p6C" firstAttribute="top" secondItem="78g-Ku-Mu6" secondAttribute="bottom" id="lDU-nF-sdK"/>
                             <constraint firstAttribute="trailing" secondItem="Uw5-A7-CrF" secondAttribute="trailing" id="qR0-Lt-Dqb"/>
                             <constraint firstItem="Uw5-A7-CrF" firstAttribute="leading" secondItem="bLI-B9-Io7" secondAttribute="leading" id="xGI-HL-KwB"/>
                         </constraints>
@@ -131,6 +138,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="j1L-mE-p6C" id="ENu-Eh-VvM"/>
                         <outlet property="tableView" destination="Uw5-A7-CrF" id="VUM-Bm-ocZ"/>
                         <segue destination="3Dl-mB-pMj" kind="modal" identifier="newReceipt" id="9Of-AE-teu"/>
                         <segue destination="3Dl-mB-pMj" kind="modal" identifier="scanReceipt" id="ejy-0v-ShD"/>
@@ -175,7 +183,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Me-Rr-MQP" id="Azb-sC-zZA">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="53.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GH5-aL-1LA">
@@ -324,7 +332,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xki-0m-db8" id="gLT-lW-ays">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="48.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wrj-1f-ccw">
@@ -381,7 +389,7 @@
                                         <rect key="frame" x="0.0" y="77" width="320" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hua-Id-STK" id="tOo-bC-nCL">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="48.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abG-hI-0B1" userLabel="add">
@@ -553,6 +561,6 @@
         <image name="icons8-Receipt-30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XcB-UX-3oE"/>
+        <segue reference="ejy-0v-ShD"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -47,7 +47,7 @@ class RRPhotoHelper: NSObject {
             })
             
             alertController.addAction(uploadAction)
-    
+
         }
         
         // 6
