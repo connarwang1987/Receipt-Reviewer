@@ -47,8 +47,12 @@ class ChartViewController: UIViewController {
         for i in 0..<monthlySpenses.count{
             tempSpenses.append(Double(monthlySpenses[i].value))
         }
-        barView.setBarChartData(xValues: months, yValues: tempSpenses, label: "Monthly Expanse($)")
-        barView.legend.enabled = false
+        barView.setBarChartData(xValues: months, yValues: tempSpenses, label: "Monthly Expense($)")
+//        let chartDataSet = BarChartDataSet(values: barEntries, label: "Monthly Expense")
+        
+        barView.xAxis.valueFormatter = IndexAxisValueFormatter(values:months)
+        barView.xAxis.granularity = 1
+        barView.xAxis.setLabelCount(13, force: false)
         barView.scaleYEnabled = false
         barView.scaleXEnabled = false
         barView.pinchZoomEnabled = false

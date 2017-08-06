@@ -32,7 +32,7 @@ class RRPhotoHelper: NSObject {
         // 2
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             // 3
-            let capturePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: { action in
+            let capturePhotoAction = UIAlertAction(title: "Scan", style: .default, handler: { action in
                 self.presentImagePickerController(with: .camera, from: viewController)
             })
             // 4

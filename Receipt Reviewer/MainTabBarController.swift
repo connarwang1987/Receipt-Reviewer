@@ -12,7 +12,15 @@ import Foundation
 class MainTabBarController: UITabBarController {
     let photoHelper = RRPhotoHelper()
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+            
+        self.tabBar.barTintColor = UIColor(red: 55/255, green: 55/255, blue: 55/255, alpha: 1)
+        
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

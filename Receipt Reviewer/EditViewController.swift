@@ -15,6 +15,7 @@ protocol EditViewControllerProtocol: class {
 
 
 class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellProtocolDelete, UIPickerViewDelegate {
+
     var items = [Item]()
     var item: Item?
     var receipt: Receipt?
@@ -130,6 +131,11 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.itemTable.backgroundColor = UIColor.lightGray
+
+        self.view.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
+
+    
         
 //        let pickerView = UIPickerView()
 //        pickerView.delegate = self
@@ -351,7 +357,10 @@ extension EditViewController: UITableViewDataSource, UITableViewDelegate{
         addCell.selectionStyle = .none
         return addCell
     }
-    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.contentView.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
+        
+    }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         // 2
     }

@@ -35,6 +35,7 @@ class ReceiptViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         receipts = CoreDataHelper.retrieveReceipts()
@@ -83,9 +84,15 @@ class ReceiptViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.backgroundColor = UIColor.lightGray
+
+        tableView.tableFooterView = UIView()
+
         receipts = CoreDataHelper.retrieveReceipts()
+        
         photoHelper.completionHandler = { (image) in
             print(image)
+            self.activityIndicator.startAnimating()
             VisionAPIHelper.sendImage(image: self.photoHelper.pickedImage!, onCompletion: { [unowned self] (json) in
                 print(json)
                 self.visionResponse = json["responses"][0]["textAnnotations"][0]["description"].stringValue
@@ -224,7 +231,11 @@ extension ReceiptViewController: UITableViewDataSource, UITableViewDelegate
             //2
             receipts = CoreDataHelper.retrieveReceipts()        }
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.contentView.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
 
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {

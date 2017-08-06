@@ -243,7 +243,7 @@
 				TargetAttributes = {
 					81D700801F13E6CD003BB738 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = CNKMW85KL5;
+						DevelopmentTeam = T6NHVVJC3W;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -491,10 +491,10 @@
 			baseConfigurationReference = 47FC6E45D1B4D1EC88E793F5 /* Pods-Receipt Reviewer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = CNKMW85KL5;
+				DEVELOPMENT_TEAM = T6NHVVJC3W;
 				INFOPLIST_FILE = "Receipt Reviewer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Receipt-Reviewer";
+				PRODUCT_BUNDLE_IDENTIFIER = com.connarwang.receipt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -505,10 +505,10 @@
 			baseConfigurationReference = B0BEB00EF7DFFD47E198C76E /* Pods-Receipt Reviewer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = CNKMW85KL5;
+				DEVELOPMENT_TEAM = T6NHVVJC3W;
 				INFOPLIST_FILE = "Receipt Reviewer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Receipt-Reviewer";
+				PRODUCT_BUNDLE_IDENTIFIER = com.connarwang.receipt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

@@ -46,6 +46,8 @@ class ReceiptDetailViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+      
+
         // 1
         if let receipt = receipt {
             // 2
@@ -79,6 +81,9 @@ class ReceiptDetailViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.backgroundColor = UIColor.lightGray
+        self.view.backgroundColor = UIColor.lightGray
+
         if receipt != nil{
             items = CoreDataHelper.retrieveItems(withID: receipt!.receiptID!)
         }
@@ -135,6 +140,10 @@ extension ReceiptDetailViewController: UITableViewDataSource,UITableViewDelegate
     {
             print("tableView = \(tableView)")
         return items.count
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.contentView.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
