@@ -11,19 +11,35 @@ import Foundation
 
 class MainTabBarController: UITabBarController {
     let photoHelper = RRPhotoHelper()
-    
+    var arrayOfImageNameForSelectedState: [String] = [ "icons8-Receipt Filled-30-2","icons8-Combo Chart Filled-30" ]
+    var arrayOfImageNameForUnselectedState:[String] = ["icons8-Receipt-30-2","icons8-Combo Chart-30-2"]
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         
             
-        self.tabBar.barTintColor = UIColor(red: 55/255, green: 55/255, blue: 55/255, alpha: 1)
+        self.tabBar.barTintColor = UIColor(red: 3/255, green: 6/255, blue: 45/255, alpha: 1)
         
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let count = self.tabBar.items?.count {
+            for i in 0...(count-1) {
+                let imageNameForSelectedState   = arrayOfImageNameForSelectedState[i]
+                let imageNameForUnselectedState = arrayOfImageNameForUnselectedState[i]
+                
+                self.tabBar.items?[i].selectedImage = UIImage(named: imageNameForSelectedState)?.withRenderingMode(.alwaysOriginal)
+                self.tabBar.items?[i].image = UIImage(named: imageNameForUnselectedState)?.withRenderingMode(.alwaysOriginal)
+            }
+        }
+        
+        let selectedColor   = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
+        let unselectedColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0)
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: unselectedColor], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: selectedColor], for: .selected)
         
         photoHelper.completionHandler  = { image in
             print("handle image")

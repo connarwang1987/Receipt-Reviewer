@@ -17,7 +17,7 @@ open class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet, IBarChartDat
 {
     fileprivate func initialize()
     {
-        self.highlightColor = NSUIColor.black
+        self.highlightColor = NSUIColor.white
         
         self.calcStackSize(entries: values as! [BarChartDataEntry])
         self.calcEntryCountIncludingStacks(entries: values as! [BarChartDataEntry])
@@ -144,7 +144,7 @@ open class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet, IBarChartDat
     open var barBorderWidth : CGFloat = 0.0
 
     /// the color drawing borders around the bars.
-    open var barBorderColor = NSUIColor.black
+    open var barBorderColor = NSUIColor.white
 
     /// the alpha value (transparency) that is used for drawing the highlight indicator bar. min = 0.0 (fully transparent), max = 1.0 (fully opaque)
     open var highlightAlpha = CGFloat(120.0 / 255.0)

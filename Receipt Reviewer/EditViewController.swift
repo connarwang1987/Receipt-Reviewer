@@ -131,9 +131,11 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.itemTable.backgroundColor = UIColor.lightGray
+        self.itemTable.backgroundColor = UIColor(red: 3/255, green: 6/255, blue: 45/255, alpha: 1)
 
-        self.view.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
+
+        self.view.backgroundColor = UIColor(red: 3/255, green: 6/255, blue: 45/255, alpha: 1)
+
 
     
         
@@ -150,7 +152,7 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
         toolBar.isTranslucent = true
-        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        toolBar.tintColor = UIColor(red: 3/255, green: 6/255, blue: 45/255, alpha: 1)
         toolBar.sizeToFit()
         
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: Selector("donePicker"))
@@ -276,6 +278,7 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
             }else{
                 print("true")
                 receipt?.title = receiptTitleTextField.text
+                receipt?.type = pickerTextField.text
 
                 for j in 0..<items.count{
                     if items[j].name != tempItemNames[j]{
@@ -358,7 +361,7 @@ extension EditViewController: UITableViewDataSource, UITableViewDelegate{
         return addCell
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.contentView.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
+        cell.contentView.backgroundColor = UIColor(red: 3/255, green: 6/255, blue: 45/255, alpha: 1)
         
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

@@ -34,8 +34,7 @@ open class PieChartView: PieRadarChartViewBase
     /// if true, the hole inside the chart will be drawn
     fileprivate var _drawHoleEnabled = true
     
-    fileprivate var _holeColor: NSUIColor? = NSUIColor.lightGray
-    
+    fileprivate var _holeColor: NSUIColor? = NSUIColor(red: 3/255, green: 6/255, blue: 45/255, alpha: 1)    
     /// Sets the color the entry labels are drawn with.
     fileprivate var _entryLabelColor: NSUIColor? = NSUIColor.white
     

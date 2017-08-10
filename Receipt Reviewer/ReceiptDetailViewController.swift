@@ -81,9 +81,8 @@ class ReceiptDetailViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.backgroundColor = UIColor.lightGray
-        self.view.backgroundColor = UIColor.lightGray
-
+        self.tableView.backgroundColor = UIColor(red: 3/255, green: 6/255, blue: 45/255, alpha: 1)
+        self.view.backgroundColor = UIColor(red: 3/255, green: 6/255, blue: 45/255, alpha: 1)
         if receipt != nil{
             items = CoreDataHelper.retrieveItems(withID: receipt!.receiptID!)
         }
@@ -142,7 +141,7 @@ extension ReceiptDetailViewController: UITableViewDataSource,UITableViewDelegate
         return items.count
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.contentView.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
+        cell.contentView.backgroundColor = UIColor(red: 3/255, green: 6/255, blue: 45/255, alpha: 1)
         
     }
     
@@ -157,7 +156,7 @@ extension ReceiptDetailViewController: UITableViewDataSource,UITableViewDelegate
         let item = items[row]
 
         cell.itemNameLabel.text = item.name
-        cell.itemPriceLabel.text = String(item.price)
+        cell.itemPriceLabel.text = "$"+String(item.price)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)

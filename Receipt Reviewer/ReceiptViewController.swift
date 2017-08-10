@@ -84,7 +84,8 @@ class ReceiptViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.backgroundColor = UIColor.lightGray
+        self.tableView.backgroundColor = UIColor(red: 3/255, green: 6/255, blue: 45/255, alpha: 1)
+
 
         tableView.tableFooterView = UIView()
 
@@ -233,8 +234,7 @@ extension ReceiptViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.contentView.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
-
+        cell.contentView.backgroundColor = UIColor(red: 3/255, green: 6/255, blue: 45/255, alpha: 1)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
