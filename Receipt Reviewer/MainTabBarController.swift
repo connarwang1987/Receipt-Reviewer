@@ -18,8 +18,7 @@ class MainTabBarController: UITabBarController {
         
         
             
-        self.tabBar.barTintColor = UIColor(red: 3/255, green: 6/255, blue: 45/255, alpha: 1)
-        
+        self.tabBar.barTintColor = UIColor(red: 22/255, green: 30/255, blue: 110/255, alpha: 1)
         
     }
     
@@ -35,8 +34,8 @@ class MainTabBarController: UITabBarController {
             }
         }
         
-        let selectedColor   = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
-        let unselectedColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0)
+        let selectedColor   = UIColor.white
+        let unselectedColor = UIColor.white
         
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: unselectedColor], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: selectedColor], for: .selected)

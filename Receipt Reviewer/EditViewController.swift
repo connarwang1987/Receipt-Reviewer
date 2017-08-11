@@ -131,10 +131,15 @@ class EditViewController: UIViewController, EditViewCellProtocol, EditViewCellPr
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.itemTable.backgroundColor = UIColor(red: 3/255, green: 6/255, blue: 45/255, alpha: 1)
-
-
-        self.view.backgroundColor = UIColor(red: 3/255, green: 6/255, blue: 45/255, alpha: 1)
+        self.itemTable.backgroundColor = UIColor(red: 40/255, green: 53/255, blue: 147/255, alpha: 1)
+        self.itemTable.separatorStyle = .none
+        self.receiptTitleTextField.backgroundColor = UIColor(red: 22/255, green: 30/255, blue: 106/255, alpha: 1)
+        self.receiptTitleTextField.attributedPlaceholder = NSAttributedString(string: "Receipt Title",
+                                                                              attributes: [NSForegroundColorAttributeName: UIColor(red: 92/255, green: 107/255, blue: 192/255, alpha: 1)])
+        self.pickerTextField.backgroundColor = UIColor(red: 22/255, green: 30/255, blue: 106/255, alpha: 1)
+        self.pickerTextField.attributedPlaceholder = NSAttributedString(string: "Selcet Receipt Type",
+                                                                        attributes: [NSForegroundColorAttributeName: UIColor(red: 92/255, green: 107/255, blue: 192/255, alpha: 1)])
+        self.view.backgroundColor = UIColor(red: 40/255, green: 53/255, blue: 147/255, alpha: 1)
 
 
     
@@ -353,15 +358,48 @@ extension EditViewController: UITableViewDataSource, UITableViewDelegate{
             itemCell.itemNameTextField.text = tempItemNames[row]
             itemCell.itemPriceTextField.text = tempItemPrices[row]
             
+            itemCell.backgroundAss?.layer.cornerRadius = 10
+            itemCell.backgroundAss?.frame = itemCell.frame.offsetBy(dx: 30, dy: 30);
+            
+            itemCell.itemNameTextField.backgroundColor = UIColor(red: 22/255, green: 30/255, blue: 106/255, alpha: 1)
+            itemCell.itemNameTextField.attributedPlaceholder = NSAttributedString(string: "Item Name",
+                                                                                  attributes: [NSForegroundColorAttributeName: UIColor(red: 92/255, green: 107/255, blue: 192/255, alpha: 1)])
+            itemCell.itemPriceTextField.backgroundColor = UIColor(red: 22/255, green: 30/255, blue: 106/255, alpha: 1)
+            itemCell.itemPriceTextField.attributedPlaceholder = NSAttributedString(string: "Item Price",
+                                                                                  attributes: [NSForegroundColorAttributeName: UIColor(red: 92/255, green: 107/255, blue: 192/255, alpha: 1)])
+            let border = CALayer()
+            let width = CGFloat(2.0)
+            border.borderColor = UIColor.lightGray.cgColor
+            border.frame = CGRect(x: 0, y: itemCell.itemNameTextField.frame.size.height - width, width:  itemCell.itemNameTextField.frame.size.width, height: itemCell.itemNameTextField.frame.size.height)
+            
+            border.borderWidth = width
+            itemCell.itemNameTextField.layer.addSublayer(border)
+            itemCell.itemNameTextField.layer.masksToBounds = true
+            
+            
+            let borderLine = CALayer()
+            let widthLine = CGFloat(2.0)
+            borderLine.borderColor = UIColor.lightGray.cgColor
+            borderLine.frame = CGRect(x: 0, y: itemCell.itemPriceTextField.frame.size.height - widthLine, width:  itemCell.itemPriceTextField.frame.size.width, height: itemCell.itemPriceTextField.frame.size.height)
+            
+            borderLine.borderWidth = widthLine
+            itemCell.itemPriceTextField.layer.addSublayer(borderLine)
+            itemCell.itemPriceTextField.layer.masksToBounds = true
+            
+            
             return itemCell
         }
         
         let addCell = tableView.dequeueReusableCell(withIdentifier: "addCell", for: indexPath) as! AddCell
         addCell.selectionStyle = .none
+        addCell.backgroundShit?.layer.cornerRadius = 10
+        addCell.backgroundShit?.frame = addCell.frame.offsetBy(dx: 30, dy: 30);
+        
+        
         return addCell
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.contentView.backgroundColor = UIColor(red: 3/255, green: 6/255, blue: 45/255, alpha: 1)
+        cell.contentView.backgroundColor = UIColor(red: 40/255, green: 53/255, blue: 147/255, alpha: 1)
         
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

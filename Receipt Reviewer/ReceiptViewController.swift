@@ -24,7 +24,7 @@ class ReceiptViewController: UIViewController {
     var visionDescription:[String]? = nil
     let apiKey = "AIzaSyCPweDaQiAX7fnfoxi5Cx8FmS9QTEdpl24"
     let baseURL = "https://vision.googleapis.com/v1/images:annotate?key="
-   
+    let cellSpacingHeight: CGFloat = 5
     var receipts = [Receipt]() {
         didSet {
             tableView.reloadData()
@@ -84,7 +84,7 @@ class ReceiptViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.backgroundColor = UIColor(red: 3/255, green: 6/255, blue: 45/255, alpha: 1)
+        self.tableView.separatorStyle = .none
 
 
         tableView.tableFooterView = UIView()
@@ -221,7 +221,15 @@ extension ReceiptViewController: UITableViewDataSource, UITableViewDelegate
         cell.receiptNameLabel.text = receipt.title
         cell.dateLabel.text = receipt.date?.convertToString()
         
+        cell.mainBackground.layer.cornerRadius = 10
+        cell.mainBackground.frame = cell.frame.offsetBy(dx: 30, dy: 30);
+        cell.selectionStyle = .none
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -232,10 +240,7 @@ extension ReceiptViewController: UITableViewDataSource, UITableViewDelegate
             //2
             receipts = CoreDataHelper.retrieveReceipts()        }
     }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.contentView.backgroundColor = UIColor(red: 3/255, green: 6/255, blue: 45/255, alpha: 1)
-    }
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {

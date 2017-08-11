@@ -10,10 +10,11 @@ import UIKit
 
 class ReceiptViewCell: UITableViewCell {
 
+    @IBOutlet weak var mainBackground: UIView!
     @IBOutlet weak var receiptNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    
+ 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

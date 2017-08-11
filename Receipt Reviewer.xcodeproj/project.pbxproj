@@ -15,10 +15,10 @@
 		814588C61F192C71003D4C18 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814588C51F192C71003D4C18 /* EditViewController.swift */; };
 		814588C81F193035003D4C18 /* EditViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814588C71F193035003D4C18 /* EditViewCell.swift */; };
 		814588CA1F19305C003D4C18 /* AddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814588C91F19305C003D4C18 /* AddCell.swift */; };
-		8175E0691F3D232E00B47930 /* icons8-Combo Chart Filled-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 8175E0671F3D232E00B47930 /* icons8-Combo Chart Filled-30.png */; };
-		8175E06A1F3D232E00B47930 /* icons8-Combo Chart-30-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8175E0681F3D232E00B47930 /* icons8-Combo Chart-30-2.png */; };
-		8175E06C1F3D233C00B47930 /* icons8-Receipt Filled-30-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8175E06B1F3D233C00B47930 /* icons8-Receipt Filled-30-2.png */; };
-		8175E06E1F3D234400B47930 /* icons8-Receipt-30-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8175E06D1F3D234400B47930 /* icons8-Receipt-30-2.png */; };
+		8175E07A1F3E418300B47930 /* icons8-Combo Chart-30-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8175E0781F3E418300B47930 /* icons8-Combo Chart-30-2.png */; };
+		8175E07D1F3E418F00B47930 /* icons8-Receipt Filled-30-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8175E07B1F3E418F00B47930 /* icons8-Receipt Filled-30-2.png */; };
+		8175E07E1F3E418F00B47930 /* icons8-Receipt-30-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8175E07C1F3E418F00B47930 /* icons8-Receipt-30-2.png */; };
+		8175E0811F3E420B00B47930 /* icons8-Combo Chart Filled-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 8175E0801F3E420B00B47930 /* icons8-Combo Chart Filled-30.png */; };
 		818D5D011F31251600CB2AD8 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818D5CFF1F31251600CB2AD8 /* Item+CoreDataClass.swift */; };
 		818D5D021F31251600CB2AD8 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818D5D001F31251600CB2AD8 /* Item+CoreDataProperties.swift */; };
 		818D5D101F3129CC00CB2AD8 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818D5D0F1F3129CC00CB2AD8 /* ChartViewController.swift */; };
@@ -49,10 +49,10 @@
 		814588C51F192C71003D4C18 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		814588C71F193035003D4C18 /* EditViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewCell.swift; sourceTree = "<group>"; };
 		814588C91F19305C003D4C18 /* AddCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCell.swift; sourceTree = "<group>"; };
-		8175E0671F3D232E00B47930 /* icons8-Combo Chart Filled-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-Combo Chart Filled-30.png"; path = "../../../../Downloads/icons8-Combo Chart Filled-30.png"; sourceTree = "<group>"; };
-		8175E0681F3D232E00B47930 /* icons8-Combo Chart-30-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-Combo Chart-30-2.png"; path = "../../../../Downloads/icons8-Combo Chart-30-2.png"; sourceTree = "<group>"; };
-		8175E06B1F3D233C00B47930 /* icons8-Receipt Filled-30-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-Receipt Filled-30-2.png"; path = "../../../../Downloads/icons8-Receipt Filled-30-2.png"; sourceTree = "<group>"; };
-		8175E06D1F3D234400B47930 /* icons8-Receipt-30-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-Receipt-30-2.png"; path = "../../../../Downloads/icons8-Receipt-30-2.png"; sourceTree = "<group>"; };
+		8175E0781F3E418300B47930 /* icons8-Combo Chart-30-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-Combo Chart-30-2.png"; path = "../../../../.Trash/icons8-Combo Chart-30-2.png"; sourceTree = "<group>"; };
+		8175E07B1F3E418F00B47930 /* icons8-Receipt Filled-30-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-Receipt Filled-30-2.png"; path = "../../../../.Trash/icons8-Receipt Filled-30-2.png"; sourceTree = "<group>"; };
+		8175E07C1F3E418F00B47930 /* icons8-Receipt-30-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-Receipt-30-2.png"; path = "../../../../.Trash/icons8-Receipt-30-2.png"; sourceTree = "<group>"; };
+		8175E0801F3E420B00B47930 /* icons8-Combo Chart Filled-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-Combo Chart Filled-30.png"; path = "../../../../Downloads/icons8-Combo Chart Filled-30.png"; sourceTree = "<group>"; };
 		818D5CFF1F31251600CB2AD8 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		818D5D001F31251600CB2AD8 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		818D5D0F1F3129CC00CB2AD8 /* ChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
@@ -195,10 +195,10 @@
 				81D700901F13E6CD003BB738 /* Info.plist */,
 				81D7008D1F13E6CD003BB738 /* LaunchScreen.storyboard */,
 				81D7008B1F13E6CD003BB738 /* Assets.xcassets */,
-				8175E0671F3D232E00B47930 /* icons8-Combo Chart Filled-30.png */,
-				8175E0681F3D232E00B47930 /* icons8-Combo Chart-30-2.png */,
-				8175E06B1F3D233C00B47930 /* icons8-Receipt Filled-30-2.png */,
-				8175E06D1F3D234400B47930 /* icons8-Receipt-30-2.png */,
+				8175E0781F3E418300B47930 /* icons8-Combo Chart-30-2.png */,
+				8175E07B1F3E418F00B47930 /* icons8-Receipt Filled-30-2.png */,
+				8175E07C1F3E418F00B47930 /* icons8-Receipt-30-2.png */,
+				8175E0801F3E420B00B47930 /* icons8-Combo Chart Filled-30.png */,
 			);
 			name = Secondary;
 			sourceTree = "<group>";
@@ -277,13 +277,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8175E06C1F3D233C00B47930 /* icons8-Receipt Filled-30-2.png in Resources */,
-				8175E06A1F3D232E00B47930 /* icons8-Combo Chart-30-2.png in Resources */,
+				8175E07D1F3E418F00B47930 /* icons8-Receipt Filled-30-2.png in Resources */,
+				8175E07A1F3E418300B47930 /* icons8-Combo Chart-30-2.png in Resources */,
 				81D7008F1F13E6CD003BB738 /* LaunchScreen.storyboard in Resources */,
 				81D7008C1F13E6CD003BB738 /* Assets.xcassets in Resources */,
+				8175E0811F3E420B00B47930 /* icons8-Combo Chart Filled-30.png in Resources */,
 				81D7008A1F13E6CD003BB738 /* Main.storyboard in Resources */,
-				8175E0691F3D232E00B47930 /* icons8-Combo Chart Filled-30.png in Resources */,
-				8175E06E1F3D234400B47930 /* icons8-Receipt-30-2.png in Resources */,
+				8175E07E1F3E418F00B47930 /* icons8-Receipt-30-2.png in Resources */,
 				81DEEC801F35330300E1ACFF /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

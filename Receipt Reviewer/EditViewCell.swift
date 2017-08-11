@@ -22,9 +22,13 @@ class EditViewCell: UITableViewCell {
     var items = [Item]()
     weak var delegate: EditViewCellProtocol?
     weak var deleteDelegate: EditViewCellProtocolDelete?
-    
+   
+    @IBOutlet weak var backgroundAss: UIView!
+
     @IBOutlet weak var itemNameTextField: UITextField!
     @IBOutlet weak var itemPriceTextField: UITextField!
+    
+    
     @IBAction func deleteButtonTapped(_ sender: Any) {
         deleteDelegate?.deleteCell(for: row)
         //tableView.setIsEditing(true, animated: true)

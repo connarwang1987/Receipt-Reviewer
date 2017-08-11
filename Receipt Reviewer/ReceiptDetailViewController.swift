@@ -54,7 +54,7 @@ class ReceiptDetailViewController: UIViewController{
             titleLabel.text = receipt.title
             typeLabel.text = receipt.type
             dateLabel.text = receipt.date?.convertToString()
-            totalLabel.text = String(getTotal())
+            totalLabel.text = "$" + String(getTotal())
             receipt.total = getTotal()
             items = CoreDataHelper.retrieveItems(withID: receipt.receiptID!)
 
@@ -81,8 +81,9 @@ class ReceiptDetailViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.backgroundColor = UIColor(red: 3/255, green: 6/255, blue: 45/255, alpha: 1)
-        self.view.backgroundColor = UIColor(red: 3/255, green: 6/255, blue: 45/255, alpha: 1)
+        self.tableView.backgroundColor = UIColor(red: 40/255, green: 53/255, blue: 147/255, alpha: 1)
+        self.tableView.separatorStyle = .none
+        self.view.backgroundColor = UIColor(red: 40/255, green: 53/255, blue: 147/255, alpha: 1)
         if receipt != nil{
             items = CoreDataHelper.retrieveItems(withID: receipt!.receiptID!)
         }
@@ -141,7 +142,7 @@ extension ReceiptDetailViewController: UITableViewDataSource,UITableViewDelegate
         return items.count
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.contentView.backgroundColor = UIColor(red: 3/255, green: 6/255, blue: 45/255, alpha: 1)
+        cell.contentView.backgroundColor = UIColor(red: 40/255, green: 53/255, blue: 147/255, alpha: 1)
         
     }
     
@@ -157,6 +158,10 @@ extension ReceiptDetailViewController: UITableViewDataSource,UITableViewDelegate
 
         cell.itemNameLabel.text = item.name
         cell.itemPriceLabel.text = "$"+String(item.price)
+        
+        cell.detailMainBackground.layer.cornerRadius = 10
+        cell.detailMainBackground.frame = cell.frame.offsetBy(dx: 30, dy: 30);
+
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)

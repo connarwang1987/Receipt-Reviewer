@@ -9,6 +9,7 @@
 import UIKit
 
 class AddCell: UITableViewCell {
+    @IBOutlet weak var backgroundShit: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

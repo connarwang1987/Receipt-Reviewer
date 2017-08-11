@@ -15,6 +15,7 @@ class ReceiptDetailViewCell: UITableViewCell {
     
     @IBOutlet weak var itemPriceLabel: UILabel!
        
+    @IBOutlet weak var detailMainBackground: UIView!
     
 
     
